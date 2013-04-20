@@ -30,7 +30,7 @@ namespace HEW.Frontend
 
         private void GetHomeProjects()
         {
-            string[] projects = Directory.GetDirectories(Server.MapPath(ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail/"));
+            string[] projects = Directory.GetDirectories(AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail/");
             for (int i = 0; i < projects.Count(); i++)
             {
                 projects[i] = Path.GetFileName(projects[i]);
