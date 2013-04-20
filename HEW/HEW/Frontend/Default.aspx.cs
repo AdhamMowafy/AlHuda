@@ -30,6 +30,9 @@ namespace HEW.Frontend
 
         private void GetHomeProjects()
         {
+            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail//"))
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory +
+                                          ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail//");
             string[] projects = Directory.GetDirectories(AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail//");
             for (int i = 0; i < projects.Count(); i++)
             {
