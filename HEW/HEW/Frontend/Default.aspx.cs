@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using HEW.Model;
+using System.Configuration;
 
 namespace HEW.Frontend
 {
@@ -29,7 +30,7 @@ namespace HEW.Frontend
 
         private void GetHomeProjects()
         {
-            string[] projects = Directory.GetDirectories(Server.MapPath("/FrontEnd/Projects/Images/Thumbnail/"));
+            string[] projects = Directory.GetDirectories(Server.MapPath(ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail/"));
             for (int i = 0; i < projects.Count(); i++)
             {
                 projects[i] = Path.GetFileName(projects[i]);
@@ -45,7 +46,7 @@ namespace HEW.Frontend
         protected string GetRandomProjectImage(int projectId)
         {
             string[] projectImgs =
-                Directory.GetFiles(Server.MapPath("/FrontEnd/Projects/Images/Thumbnail/" + projectId + "/"));
+                Directory.GetFiles(Server.MapPath(ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail/" + projectId + "/"));
 
             Random rand = new Random();
             int imgIndex = rand.Next(0, projectImgs.Length - 1);
