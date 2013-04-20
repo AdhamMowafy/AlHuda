@@ -12,7 +12,6 @@ namespace HEW.Frontend
 {
     public partial class Default : Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             GetHomeNews();
@@ -30,21 +29,25 @@ namespace HEW.Frontend
 
         private void GetHomeProjects()
         {
-            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail//"))
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory +
-                                          ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail//");
-            string[] projects = Directory.GetDirectories(AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail//");
-            for (int i = 0; i < projects.Count(); i++)
-            {
-                projects[i] = Path.GetFileName(projects[i]);
-            }
             HEWDataContext context = new HEWDataContext();
-            IEnumerable<Project> homeProjects =
-                context.Projects.Where(i => i.IsHome && projects.Contains(i.ID.ToString())).ToList();
+            
+            var result = (from pr in context.Projects
+                          where pr.IsHome && pr.ProjectsImages.Count > 0
+                          select new {pr.ID, pr.Name, ImgsCount = pr.ProjectsImages.Count});
 
-            rptHomeProjects.DataSource = homeProjects;
+            rptHomeProjects.DataSource = result;
             rptHomeProjects.DataBind();
         } 
+
+        protected string GetRandomImg(int projectId, int count)
+        {
+            Random rd = new Random();
+            int rndImg = rd.Next(0, count);
+            HEWDataContext context = new HEWDataContext();
+            return
+                context.ProjectsImages.Where(i => i.ProjectID == projectId).Skip(rndImg).Take(1).SingleOrDefault().
+                    ImgPublicID;
+        }
 
         protected string GetRandomProjectImage(int projectId)
         {

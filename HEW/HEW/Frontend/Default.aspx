@@ -4,7 +4,7 @@
 <%@ Register Src="~/Frontend/Shared/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
 
 <!DOCTYPE html>
-<html>  
+<html>
 <head>
     <title>:: Alhuda Engineering ::</title>
     <!--meta-->
@@ -192,7 +192,7 @@
                                                         <li>
                                                             <a href="#">
                                                                 <span><%#Eval("Name") %></span>
-                                                                <img style="width: 176px; height: 162px" alt="" src="/FrontEnd/Projects/Images/Thumbnail/<%#Eval("ID") %>/<%#GetRandomProjectImage(Convert.ToInt32(Eval("ID"))) %>" />
+                                                                <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_162,w_176/<%# GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.png" />
                                                             </a>
                                                         </li>
                                                     </ItemTemplate>

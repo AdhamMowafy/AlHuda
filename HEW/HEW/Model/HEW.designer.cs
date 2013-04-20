@@ -22,7 +22,7 @@ namespace HEW.Model
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="HEW")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="db4c91ca28939f45ca85bda14600b02d88")]
 	public partial class HEWDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -54,6 +54,9 @@ namespace HEW.Model
     partial void InsertProject(Project instance);
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
+    partial void InsertProjectsImage(ProjectsImage instance);
+    partial void UpdateProjectsImage(ProjectsImage instance);
+    partial void DeleteProjectsImage(ProjectsImage instance);
     #endregion
 		
 		public HEWDataContext() : 
@@ -147,6 +150,14 @@ namespace HEW.Model
 			get
 			{
 				return this.GetTable<Project>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProjectsImage> ProjectsImages
+		{
+			get
+			{
+				return this.GetTable<ProjectsImage>();
 			}
 		}
 	}
@@ -1199,6 +1210,8 @@ namespace HEW.Model
 		
 		private bool _IsHome;
 		
+		private EntitySet<ProjectsImage> _ProjectsImages;
+		
 		private EntityRef<ProjectsCategory> _ProjectsCategory;
 		
     #region Extensibility Method Definitions
@@ -1219,6 +1232,7 @@ namespace HEW.Model
 		
 		public Project()
 		{
+			this._ProjectsImages = new EntitySet<ProjectsImage>(new Action<ProjectsImage>(this.attach_ProjectsImages), new Action<ProjectsImage>(this.detach_ProjectsImages));
 			this._ProjectsCategory = default(EntityRef<ProjectsCategory>);
 			OnCreated();
 		}
@@ -1327,6 +1341,19 @@ namespace HEW.Model
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectsImage", Storage="_ProjectsImages", ThisKey="ID", OtherKey="ProjectID")]
+		public EntitySet<ProjectsImage> ProjectsImages
+		{
+			get
+			{
+				return this._ProjectsImages;
+			}
+			set
+			{
+				this._ProjectsImages.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectsCategory_Project", Storage="_ProjectsCategory", ThisKey="CategoryID", OtherKey="ID", IsForeignKey=true)]
 		public ProjectsCategory ProjectsCategory
 		{
@@ -1357,6 +1384,169 @@ namespace HEW.Model
 						this._CategoryID = default(int);
 					}
 					this.SendPropertyChanged("ProjectsCategory");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProjectsImages(ProjectsImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ProjectsImages(ProjectsImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectsImages")]
+	public partial class ProjectsImage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _ProjectID;
+		
+		private string _ImgPublicID;
+		
+		private EntityRef<Project> _Project;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnProjectIDChanging(int value);
+    partial void OnProjectIDChanged();
+    partial void OnImgPublicIDChanging(string value);
+    partial void OnImgPublicIDChanged();
+    #endregion
+		
+		public ProjectsImage()
+		{
+			this._Project = default(EntityRef<Project>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int NOT NULL")]
+		public int ProjectID
+		{
+			get
+			{
+				return this._ProjectID;
+			}
+			set
+			{
+				if ((this._ProjectID != value))
+				{
+					if (this._Project.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProjectIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectID = value;
+					this.SendPropertyChanged("ProjectID");
+					this.OnProjectIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPublicID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ImgPublicID
+		{
+			get
+			{
+				return this._ImgPublicID;
+			}
+			set
+			{
+				if ((this._ImgPublicID != value))
+				{
+					this.OnImgPublicIDChanging(value);
+					this.SendPropertyChanging();
+					this._ImgPublicID = value;
+					this.SendPropertyChanged("ImgPublicID");
+					this.OnImgPublicIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectsImage", Storage="_Project", ThisKey="ProjectID", OtherKey="ID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.ProjectsImages.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.ProjectsImages.Add(this);
+						this._ProjectID = value.ID;
+					}
+					else
+					{
+						this._ProjectID = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
