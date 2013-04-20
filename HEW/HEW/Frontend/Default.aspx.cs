@@ -44,7 +44,7 @@ namespace HEW.Frontend
 
             rptHomeProjects.DataSource = homeProjects;
             rptHomeProjects.DataBind();
-        }
+        } 
 
         protected string GetRandomProjectImage(int projectId)
         {
