@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-using DropNet;
 using HEW.Model;
 using System;
 using System.IO;
@@ -24,7 +23,7 @@ namespace HEW.Admin.Projects
             try
             {
 
-                Guid fileName = Guid.NewGuid();
+
                 if (
                     !Directory.Exists(
                         Server.MapPath("/FrontEnd/Projects/Images/Original/" + Request.QueryString["ProjectID"] + "/")))
@@ -34,7 +33,7 @@ namespace HEW.Admin.Projects
                 }
                 string path =
                     Server.MapPath("/FrontEnd/Projects/Images/Original/" + Request.QueryString["ProjectID"] + "/") +
-                    fileName + "." + e.FileName.Split('.')[1];
+                    Guid.NewGuid() + "." + e.FileName.Split('.')[1];
                 AjaxFileUpload1.SaveAs(path);
 
                 //ImageConverter ic = new ImageConverter();
@@ -56,24 +55,11 @@ namespace HEW.Admin.Projects
 
                 ImageUploadResult uploadResult = cloudinary.Upload(uploadParams);
 
-                //var _client = new DropNetClient("ago6ev4cm9qyjri", "du4ih666d3w5gpb");
-                //_client.GetToken();
-                //_client.BuildAuthorizeUrl();
-                //// Async
-                //_client.GetTokenAsync((userLogin) =>
-                //    {
-                //        //Dont really need to do anything with userLogin, DropNet takes care of it for now
-                //    },
-                //                      (error) =>
-                //                          {
-                //                              //Handle error
-                //                          });
-                //var uploaded = _client.UploadFile("/AlHuda/", fileName + "." + e.FileName.Split('.')[1], File.ReadAllBytes(path)); //FileInfo
-
 
 
                 HEWDataContext context = new HEWDataContext();
-                context.ProjectsImages.InsertOnSubmit(new ProjectsImage { ImgPublicID = uploadResult.PublicId, ProjectID = int.Parse(Request.QueryString["ProjectID"]) });
+                context.ProjectsImages.InsertOnSubmit(new ProjectsImage
+                    {ImgPublicID = uploadResult.PublicId, ProjectID = int.Parse(Request.QueryString["ProjectID"])});
                 context.SubmitChanges();
 
                 File.Delete(path);
