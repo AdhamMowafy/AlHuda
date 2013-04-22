@@ -13,7 +13,7 @@
                         DataNavigateUrlFormatString="New.aspx?ID={0}" DataTextField="ID"></asp:HyperLinkField>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:ImageButton ID="ImageButton1" ImageUrl="" CommandArgument='<%#Eval("ID")%>' runat="server" Text="Delete" OnClick="btnDelete_Click" OnClientClick='<%# "return ConfirmationMsg(\"" +Eval("UserName") + "\" );" %>' />
+                            <asp:ImageButton ID="ImageButton1" ImageUrl="" CommandArgument='<%#Eval("ID")%>' runat="server" Text="Delete" OnClientClick='<%# "return ConfirmationMsg(\"" +Eval("UserName") + "\" );" %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
