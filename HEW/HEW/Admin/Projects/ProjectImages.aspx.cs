@@ -22,8 +22,7 @@ namespace HEW.Admin.Projects
         {
             try
             {
-
-
+                Guid fileName = Guid.NewGuid();
                 if (
                     !Directory.Exists(
                         Server.MapPath("/FrontEnd/Projects/Images/Original/" + Request.QueryString["ProjectID"] + "/")))
@@ -33,16 +32,8 @@ namespace HEW.Admin.Projects
                 }
                 string path =
                     Server.MapPath("/FrontEnd/Projects/Images/Original/" + Request.QueryString["ProjectID"] + "/") +
-                    Guid.NewGuid() + "." + e.FileName.Split('.')[1];
+                    fileName + "." + e.FileName.Split('.')[1];
                 AjaxFileUpload1.SaveAs(path);
-
-                //ImageConverter ic = new ImageConverter();
-                //System.Drawing.Image image = (System.Drawing.Image)ic.ConvertFrom(File.ReadAllBytes(path));
-                //if (image.Width > 5000 || image.Height > 5000)
-                //{
-                //    image = ResizeImage(image, 5000, 5000);
-                //    image.Save(path);
-                //}
 
                 Account account = new Account("dlyvxs7of", "634626974285569",
                                               "FtB_0jhcmFypFS7QTwCBKcPRGzE");
@@ -50,7 +41,8 @@ namespace HEW.Admin.Projects
                 Cloudinary cloudinary = new Cloudinary(account);
                 ImageUploadParams uploadParams = new ImageUploadParams()
                     {
-                        File = new FileDescription("file", file)
+
+                        File = new FileDescription("http://hudaengineering.apphb.com/FrontEnd/projects/images/3/" + fileName + "." + e.FileName.Split('.')[1])
                     };
 
                 ImageUploadResult uploadResult = cloudinary.Upload(uploadParams);
