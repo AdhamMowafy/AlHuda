@@ -15,7 +15,7 @@
         }
 
         function Error() {
-            document.getElementById("lblMessage").innerHTML = "Upload failed.";
+            alert("Upload failed.");
         }
     </script>
     <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">

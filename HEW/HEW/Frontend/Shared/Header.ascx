@@ -10,16 +10,16 @@
             <a href="#">contact us</a> <a href="#">careers</a>
         </div>
         <ul class="sf-menu">
-            <li class="selected">
-                <a href="#" title="HOME">Home
+            <li class="<%=StrHomeSelected %>">
+                <a href="/Frontend/" title="HOME">Home
                 </a>
             </li>
-            <li class="submenu">
-                <a href="#" title="About us ">About us 
+            <li class="submenu <%=StrAboutSelected %>">
+                <a href="/Frontend/About/" title="About us ">About us 
                 </a>
                 <ul>
                     <li>
-                        <a href="#">Our Vesion
+                        <a href="/Frontend/About/">Our Vesion
                         </a>
                     </li>
                     <li>
@@ -52,7 +52,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="submenu">
+            <li class="submenu <%=StrBoardSelected %>">
                 <a href="#" title="board of directors">board of directors
                 </a>
                 <ul>
@@ -70,7 +70,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="submenu">
+            <li class="submenu <%=StrPartnershipsSelected %>">
                 <a href="#" title="partnerships">partnerships
                 </a>
                 <ul>
@@ -84,7 +84,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="submenu">
+            <li class="submenu <%=StrProjectsSelected %>">
                 <a href="#">Projects
                 </a>
                 <ul>
@@ -130,7 +130,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="<%=StrNewsSelected %>">
                 <a href="#" title="News">News
                 </a>
             </li>
@@ -138,14 +138,14 @@
     </div>
     <div class="mobile_menu">
         <select>
-            <option value="home.html" selected='selected'>HOME</option>
-            <option value="#">About Us</option>
-            <option value="#">Board Of Directors</option>
-            <option value="#">Partnerships</option>
-            <option value="#">Projects</option>
-            <option value="#">News</option>
-            <option value="#">Contact Us</option>
-            <option value="#">Careers</option>
+            <option value="/Frontend/" selected='<%=StrHomeSelected %>'>HOME</option>
+            <option value="/Frontend/About/" selected='<%=StrAboutSelected %>'>About Us</option>
+            <option value="/Frontend/Board/" selected='<%=StrBoardSelected %>'>Board Of Directors</option>
+            <option value="/Frontend/Partnerships/" selected='<%=StrPartnershipsSelected %>'>Partnerships</option>
+            <option value="/Frontend/Projects/" selected='<%=StrProjectsSelected %>'>Projects</option>
+            <option value="/Frontend/News/" selected='<%=StrNewsSelected %>'>News</option>
+            <option value="/Frontend/Contact/" selected='<%=StrContactSelected %>'>Contact Us</option>
+            <option value="/Frontend/Careers/" selected='<%=StrCareersSelected %>'>Careers</option>
         </select>
     </div>
 </div>

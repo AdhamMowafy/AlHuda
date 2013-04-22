@@ -44,6 +44,12 @@
     <Reference Include="CloudinaryDotNet">
       <HintPath>..\packages\CloudinaryDotNet.1.0.5\lib\net35\CloudinaryDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DropNet">
+      <HintPath>..\packages\DropNet.1.9.3\lib\net35\DropNet.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\AjaxControlToolkit.7.0123\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -53,6 +59,9 @@
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\DropNet.1.9.3\lib\net35\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.7.0123\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
@@ -76,9 +85,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Careers\Default.aspx" />
+    <Content Include="Admin\Careers\New.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\NewsLetter\Default.aspx" />
+    <Content Include="Admin\News\Default.aspx" />
+    <Content Include="Admin\News\New.aspx" />
     <Content Include="Admin\Projects\Default.aspx" />
+    <Content Include="Admin\Projects\New.aspx" />
     <Content Include="Admin\Projects\ProjectImages.aspx" />
+    <Content Include="Admin\UserManagement\Default.aspx" />
+    <Content Include="Admin\UserManagement\New.aspx" />
     <Content Include="Content\images\client1.jpg" />
     <Content Include="Content\images\code_background.png" />
     <Content Include="Content\images\dotted_line.png" />
@@ -135,9 +152,25 @@
     <Content Include="Content\style\responsive.css" />
     <Content Include="Content\style\style.css" />
     <Content Include="Content\style\superfish.css" />
+    <Content Include="Frontend\About\Clients.aspx" />
+    <Content Include="Frontend\About\Default.aspx" />
+    <Content Include="Frontend\About\Iso.aspx" />
+    <Content Include="Frontend\About\LeftMenu.ascx" />
+    <Content Include="Frontend\About\Message.aspx" />
+    <Content Include="Frontend\About\Mission.aspx" />
+    <Content Include="Frontend\About\Resources.aspx" />
+    <Content Include="Frontend\About\WhatWeDo.aspx" />
+    <Content Include="Frontend\Careers\Default.aspx" />
+    <Content Include="Frontend\Careers\VacancyDetails.aspx" />
+    <Content Include="Frontend\Contact\Default.aspx" />
+    <Content Include="Frontend\Contact\Feedback.aspx" />
     <Content Include="Frontend\Default.aspx" />
+    <Content Include="Frontend\News\Default.aspx" />
+    <Content Include="Frontend\News\NewsDetails.aspx" />
     <Content Include="Frontend\Shared\Footer.ascx" />
     <Content Include="Frontend\Shared\Header.ascx" />
+    <Content Include="Frontend\Shared\SidePartnerships.ascx" />
+    <Content Include="Frontend\Shared\SideProjects.ascx" />
     <Content Include="Model\HEW.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>HEW.designer.cs</LastGenOutput>
@@ -161,6 +194,20 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Careers\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Careers\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Careers\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Careers\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,12 +222,40 @@
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\NewsLetter\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NewsLetter\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\News\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\News\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\News\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\News\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Projects\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Projects\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Projects\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Projects\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Projects\ProjectImages.aspx.cs">
       <DependentUpon>ProjectImages.aspx</DependentUpon>
@@ -189,12 +264,124 @@
     <Compile Include="Admin\Projects\ProjectImages.aspx.designer.cs">
       <DependentUpon>ProjectImages.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UserManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManagement\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagement\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\Clients.aspx.cs">
+      <DependentUpon>Clients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\Clients.aspx.designer.cs">
+      <DependentUpon>Clients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\Iso.aspx.cs">
+      <DependentUpon>Iso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\Iso.aspx.designer.cs">
+      <DependentUpon>Iso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\LeftMenu.ascx.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\LeftMenu.ascx.designer.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\Message.aspx.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\Message.aspx.designer.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\Mission.aspx.cs">
+      <DependentUpon>Mission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\Mission.aspx.designer.cs">
+      <DependentUpon>Mission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\Resources.aspx.cs">
+      <DependentUpon>Resources.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\Resources.aspx.designer.cs">
+      <DependentUpon>Resources.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\About\WhatWeDo.aspx.cs">
+      <DependentUpon>WhatWeDo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\About\WhatWeDo.aspx.designer.cs">
+      <DependentUpon>WhatWeDo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Careers\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Careers\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Careers\VacancyDetails.aspx.cs">
+      <DependentUpon>VacancyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Careers\VacancyDetails.aspx.designer.cs">
+      <DependentUpon>VacancyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Contact\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Contact\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Contact\Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Contact\Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Frontend\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\News\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\News\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\News\NewsDetails.aspx.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\News\NewsDetails.aspx.designer.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Shared\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
@@ -209,6 +396,20 @@
     </Compile>
     <Compile Include="Frontend\Shared\Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Shared\SidePartnerships.ascx.cs">
+      <DependentUpon>SidePartnerships.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Shared\SidePartnerships.ascx.designer.cs">
+      <DependentUpon>SidePartnerships.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Shared\SideProjects.ascx.cs">
+      <DependentUpon>SideProjects.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Shared\SideProjects.ascx.designer.cs">
+      <DependentUpon>SideProjects.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,17 +448,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Careers\" />
     <Folder Include="Admin\Content\" />
-    <Folder Include="Admin\NewsLetter\" />
-    <Folder Include="Admin\News\" />
-    <Folder Include="Admin\UserManagement\" />
     <Folder Include="App_Code\" />
-    <Folder Include="Frontend\About\" />
     <Folder Include="Frontend\Board\" />
-    <Folder Include="Frontend\Careers\" />
-    <Folder Include="Frontend\News\Images\1\" />
-    <Folder Include="Frontend\News\Images\2\" />
     <Folder Include="Frontend\Partnerships\" />
     <Folder Include="Frontend\Projects\Images\Gallery\" />
     <Folder Include="Frontend\Projects\Images\Original\" />

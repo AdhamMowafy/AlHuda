@@ -51,12 +51,12 @@ namespace HEW.Model
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InsertProject(Project instance);
-    partial void UpdateProject(Project instance);
-    partial void DeleteProject(Project instance);
     partial void InsertProjectsImage(ProjectsImage instance);
     partial void UpdateProjectsImage(ProjectsImage instance);
     partial void DeleteProjectsImage(ProjectsImage instance);
+    partial void InsertProject(Project instance);
+    partial void UpdateProject(Project instance);
+    partial void DeleteProject(Project instance);
     #endregion
 		
 		public HEWDataContext() : 
@@ -145,19 +145,27 @@ namespace HEW.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<Project> Projects
-		{
-			get
-			{
-				return this.GetTable<Project>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ProjectsImage> ProjectsImages
 		{
 			get
 			{
 				return this.GetTable<ProjectsImage>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Capability> Capabilities
+		{
+			get
+			{
+				return this.GetTable<Capability>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Project> Projects
+		{
+			get
+			{
+				return this.GetTable<Project>();
 			}
 		}
 	}
@@ -1194,233 +1202,6 @@ namespace HEW.Model
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Projects")]
-	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private int _CategoryID;
-		
-		private string _Description;
-		
-		private bool _IsHome;
-		
-		private EntitySet<ProjectsImage> _ProjectsImages;
-		
-		private EntityRef<ProjectsCategory> _ProjectsCategory;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnCategoryIDChanging(int value);
-    partial void OnCategoryIDChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnIsHomeChanging(bool value);
-    partial void OnIsHomeChanged();
-    #endregion
-		
-		public Project()
-		{
-			this._ProjectsImages = new EntitySet<ProjectsImage>(new Action<ProjectsImage>(this.attach_ProjectsImages), new Action<ProjectsImage>(this.detach_ProjectsImages));
-			this._ProjectsCategory = default(EntityRef<ProjectsCategory>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
-		public int CategoryID
-		{
-			get
-			{
-				return this._CategoryID;
-			}
-			set
-			{
-				if ((this._CategoryID != value))
-				{
-					if (this._ProjectsCategory.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryIDChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryID = value;
-					this.SendPropertyChanged("CategoryID");
-					this.OnCategoryIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHome", DbType="Bit NOT NULL")]
-		public bool IsHome
-		{
-			get
-			{
-				return this._IsHome;
-			}
-			set
-			{
-				if ((this._IsHome != value))
-				{
-					this.OnIsHomeChanging(value);
-					this.SendPropertyChanging();
-					this._IsHome = value;
-					this.SendPropertyChanged("IsHome");
-					this.OnIsHomeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectsImage", Storage="_ProjectsImages", ThisKey="ID", OtherKey="ProjectID")]
-		public EntitySet<ProjectsImage> ProjectsImages
-		{
-			get
-			{
-				return this._ProjectsImages;
-			}
-			set
-			{
-				this._ProjectsImages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectsCategory_Project", Storage="_ProjectsCategory", ThisKey="CategoryID", OtherKey="ID", IsForeignKey=true)]
-		public ProjectsCategory ProjectsCategory
-		{
-			get
-			{
-				return this._ProjectsCategory.Entity;
-			}
-			set
-			{
-				ProjectsCategory previousValue = this._ProjectsCategory.Entity;
-				if (((previousValue != value) 
-							|| (this._ProjectsCategory.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ProjectsCategory.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._ProjectsCategory.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._CategoryID = value.ID;
-					}
-					else
-					{
-						this._CategoryID = default(int);
-					}
-					this.SendPropertyChanged("ProjectsCategory");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ProjectsImages(ProjectsImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_ProjectsImages(ProjectsImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectsImages")]
 	public partial class ProjectsImage : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1569,6 +1350,320 @@ namespace HEW.Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Capabilities")]
+	public partial class Capability
+	{
+		
+		private string _NetAssestsDevelopment;
+		
+		private string _CapitalDevelopment;
+		
+		private string _TotalEmployees;
+		
+		public Capability()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NetAssestsDevelopment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string NetAssestsDevelopment
+		{
+			get
+			{
+				return this._NetAssestsDevelopment;
+			}
+			set
+			{
+				if ((this._NetAssestsDevelopment != value))
+				{
+					this._NetAssestsDevelopment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CapitalDevelopment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CapitalDevelopment
+		{
+			get
+			{
+				return this._CapitalDevelopment;
+			}
+			set
+			{
+				if ((this._CapitalDevelopment != value))
+				{
+					this._CapitalDevelopment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployees", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TotalEmployees
+		{
+			get
+			{
+				return this._TotalEmployees;
+			}
+			set
+			{
+				if ((this._TotalEmployees != value))
+				{
+					this._TotalEmployees = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Projects")]
+	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private int _CategoryID;
+		
+		private string _Description;
+		
+		private bool _IsHome;
+		
+		private bool _IsSide;
+		
+		private EntitySet<ProjectsImage> _ProjectsImages;
+		
+		private EntityRef<ProjectsCategory> _ProjectsCategory;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnCategoryIDChanging(int value);
+    partial void OnCategoryIDChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnIsHomeChanging(bool value);
+    partial void OnIsHomeChanged();
+    partial void OnIsSideChanging(bool value);
+    partial void OnIsSideChanged();
+    #endregion
+		
+		public Project()
+		{
+			this._ProjectsImages = new EntitySet<ProjectsImage>(new Action<ProjectsImage>(this.attach_ProjectsImages), new Action<ProjectsImage>(this.detach_ProjectsImages));
+			this._ProjectsCategory = default(EntityRef<ProjectsCategory>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					if (this._ProjectsCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCategoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryID = value;
+					this.SendPropertyChanged("CategoryID");
+					this.OnCategoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHome", DbType="Bit NOT NULL")]
+		public bool IsHome
+		{
+			get
+			{
+				return this._IsHome;
+			}
+			set
+			{
+				if ((this._IsHome != value))
+				{
+					this.OnIsHomeChanging(value);
+					this.SendPropertyChanging();
+					this._IsHome = value;
+					this.SendPropertyChanged("IsHome");
+					this.OnIsHomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSide", DbType="Bit")]
+		public bool IsSide
+		{
+			get
+			{
+				return this._IsSide;
+			}
+			set
+			{
+				if ((this._IsSide != value))
+				{
+					this.OnIsSideChanging(value);
+					this.SendPropertyChanging();
+					this._IsSide = value;
+					this.SendPropertyChanged("IsSide");
+					this.OnIsSideChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectsImage", Storage="_ProjectsImages", ThisKey="ID", OtherKey="ProjectID")]
+		public EntitySet<ProjectsImage> ProjectsImages
+		{
+			get
+			{
+				return this._ProjectsImages;
+			}
+			set
+			{
+				this._ProjectsImages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectsCategory_Project", Storage="_ProjectsCategory", ThisKey="CategoryID", OtherKey="ID", IsForeignKey=true)]
+		public ProjectsCategory ProjectsCategory
+		{
+			get
+			{
+				return this._ProjectsCategory.Entity;
+			}
+			set
+			{
+				ProjectsCategory previousValue = this._ProjectsCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._ProjectsCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProjectsCategory.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._ProjectsCategory.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._CategoryID = value.ID;
+					}
+					else
+					{
+						this._CategoryID = default(int);
+					}
+					this.SendPropertyChanged("ProjectsCategory");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProjectsImages(ProjectsImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ProjectsImages(ProjectsImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
 		}
 	}
 }

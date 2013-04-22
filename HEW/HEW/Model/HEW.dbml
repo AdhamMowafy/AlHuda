@@ -58,6 +58,21 @@
       <Association Name="User_UserRolse" Member="UserRolses" ThisKey="ID" OtherKey="UserID" Type="UserRolse" />
     </Type>
   </Table>
+  <Table Name="dbo.ProjectsImages" Member="ProjectsImages">
+    <Type Name="ProjectsImage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImgPublicID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Project_ProjectsImage" Member="Project" ThisKey="ProjectID" OtherKey="ID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Capabilities" Member="Capabilities">
+    <Type Name="Capability">
+      <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Projects" Member="Projects">
     <Type Name="Project">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -65,16 +80,9 @@
       <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="IsHome" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSide" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
       <Association Name="Project_ProjectsImage" Member="ProjectsImages" ThisKey="ID" OtherKey="ProjectID" Type="ProjectsImage" />
       <Association Name="ProjectsCategory_Project" Member="ProjectsCategory" ThisKey="CategoryID" OtherKey="ID" Type="ProjectsCategory" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProjectsImages" Member="ProjectsImages">
-    <Type Name="ProjectsImage">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ImgPublicID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Project_ProjectsImage" Member="Project" ThisKey="ProjectID" OtherKey="ID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
