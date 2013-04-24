@@ -192,7 +192,7 @@
                                                         <li>
                                                             <a href="#">
                                                                 <span><%#Eval("Name") %></span>
-                                                                <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_162,w_176/<%# GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.png" />
+                                                                <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_162,w_176/<%# HEW.Model.Repositories.ProjectsRepository.GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.png" />
                                                             </a>
                                                         </li>
                                                     </ItemTemplate>

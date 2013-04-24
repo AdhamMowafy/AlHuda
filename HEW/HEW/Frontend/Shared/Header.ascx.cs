@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Web.UI;
 
 namespace HEW.Frontend.Shared
@@ -31,6 +32,16 @@ namespace HEW.Frontend.Shared
                 StrCareersSelected = "selected";
             else 
                 StrHomeSelected = "selected";
+
+            RenderProjectCategories();
+        }
+
+        private void RenderProjectCategories()
+        {
+            var projectCatList = Model.Repositories.ProjectsRepository.GetProjectsCategories();
+
+            rptProjectCategories.DataSource = projectCatList;
+            rptProjectCategories.DataBind();
         }
     }
 }

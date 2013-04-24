@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HEW.Frontend.Shared {
+namespace HEW.Frontend.Projects {
     
     
-    public partial class Header {
+    public partial class LeftMenu {
         
         /// <summary>
         /// rptProjectCategories control.

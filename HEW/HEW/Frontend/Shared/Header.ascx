@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Header.ascx.cs" Inherits="HEW.Frontend.Shared.Header" %>
 <div class="header clearfix">
     <div class="header_left">
-        <a href="#">
+        <a href="/Frontend/">
             <img src="/Content/images/logo.jpg" alt="logo" />
         </a>
     </div>
@@ -85,49 +85,14 @@
                 </ul>
             </li>
             <li class="submenu <%=StrProjectsSelected %>">
-                <a href="#">Projects
+                <a href="/Frontend/Projects/">Projects
                 </a>
                 <ul>
-                    <li>
-                        <a href="#">Highrises & Towers
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Headquarters & Residence
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Places & VIP Residences
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Education & Academic Building
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Sports Facilities & Landscaping
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Highways, Bridges & Infrastructure
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Micro Tunneing & Pilling
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Industrial & Environment
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Industrial & Electromechanical
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Architectual / Interior Design
-                        </a>
-                    </li>
+                    <asp:Repeater runat="server" ID="rptProjectCategories">
+                        <ItemTemplate>
+                            <li><a href="/Frontend/Projects/ProjectsList.aspx?ProjectCategory=<%#Eval("ID") %>"><%#Eval("Name") %></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </li>
             <li class="<%=StrNewsSelected %>">

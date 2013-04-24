@@ -7,10 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HEW.Frontend.Shared {
+namespace HEW.Frontend.Projects {
     
     
-    public partial class Header {
+    public partial class Default {
+        
+        /// <summary>
+        /// LeftMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::HEW.Frontend.Projects.LeftMenu LeftMenu;
+        
+        /// <summary>
+        /// SidePartnerships control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::HEW.Frontend.Shared.SidePartnerships SidePartnerships;
         
         /// <summary>
         /// rptProjectCategories control.

@@ -31,7 +31,7 @@ namespace HEW.Frontend.Shared
 
             var result = (from pr in context.Projects
                           where pr.IsSide && pr.ProjectsImages.Count > 0
-                          select new { pr.ID, pr.Name, ImgsCount = pr.ProjectsImages.Count });
+                          select new { pr.ID, pr.Name, ImgsCount = pr.ProjectsImages.Count }).ToList();
 
             rptSideProjects.DataSource = result;
             rptSideProjects.DataBind();

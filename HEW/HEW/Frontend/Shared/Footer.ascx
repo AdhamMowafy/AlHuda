@@ -95,7 +95,7 @@
             <div class="scrolling_list_wrapper">
                 <h5>Subscribe to our newsletter</h5>
                 <div class="newsletter">
-                    <asp:TextBox runat="server" ID="txtMail" Text="Enter Your Email"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtMail" Text="Enter Your Email" onblur="if (this.value=='') this.value = 'Enter Your Email'" onfocus="if (this.value=='Enter Your Email') this.value = ''"></asp:TextBox>
                     <asp:LinkButton runat="server" ID="btnRegister" CssClass="submitButton" OnClick="btnRegister_Click">
                         <asp:Image ID="imgFolder" runat="server" ImageUrl="/Content/images/subscribebutton.png" />
                     </asp:LinkButton>

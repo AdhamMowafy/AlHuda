@@ -26,13 +26,6 @@
       <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.ProjectsCategories" Member="ProjectsCategories">
-    <Type Name="ProjectsCategory">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="ProjectsCategory_Project" Member="Projects" ThisKey="ID" OtherKey="CategoryID" Type="Project" />
-    </Type>
-  </Table>
   <Table Name="dbo.Roles" Member="Roles">
     <Type Name="Role">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -83,6 +76,14 @@
       <Column Name="IsSide" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
       <Association Name="Project_ProjectsImage" Member="ProjectsImages" ThisKey="ID" OtherKey="ProjectID" Type="ProjectsImage" />
       <Association Name="ProjectsCategory_Project" Member="ProjectsCategory" ThisKey="CategoryID" OtherKey="ID" Type="ProjectsCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectsCategories" Member="ProjectsCategories">
+    <Type Name="ProjectsCategory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Order]" Member="Order" Type="System.Int16" DbType="SmallInt" CanBeNull="false" />
+      <Association Name="ProjectsCategory_Project" Member="Projects" ThisKey="ID" OtherKey="CategoryID" Type="Project" />
     </Type>
   </Table>
 </Database>

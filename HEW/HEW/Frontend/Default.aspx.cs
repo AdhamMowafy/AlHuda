@@ -39,25 +39,6 @@ namespace HEW.Frontend
             rptHomeProjects.DataBind();
         } 
 
-        protected string GetRandomImg(int projectId, int count)
-        {
-            Random rd = new Random();
-            int rndImg = rd.Next(0, count);
-            HEWDataContext context = new HEWDataContext();
-            return
-                context.ProjectsImages.Where(i => i.ProjectID == projectId).Skip(rndImg).Take(1).SingleOrDefault().
-                    ImgPublicID;
-        }
-
-        protected string GetRandomProjectImage(int projectId)
-        {
-            string[] projectImgs =
-                Directory.GetFiles(Server.MapPath(ConfigurationManager.AppSettings["ProjectImages"] + "Thumbnail/" + projectId + "/"));
-
-            Random rand = new Random();
-            int imgIndex = rand.Next(0, projectImgs.Length - 1);
-
-            return Path.GetFileName(projectImgs[imgIndex]);
-        }
+        
     }
 }

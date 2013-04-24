@@ -161,6 +161,9 @@
     <Content Include="Frontend\Default.aspx" />
     <Content Include="Frontend\News\Default.aspx" />
     <Content Include="Frontend\News\NewsDetails.aspx" />
+    <Content Include="Frontend\Projects\Default.aspx" />
+    <Content Include="Frontend\Projects\LeftMenu.ascx" />
+    <Content Include="Frontend\Projects\ProjectsList.aspx" />
     <Content Include="Frontend\Shared\Footer.ascx" />
     <Content Include="Frontend\Shared\Header.ascx" />
     <Content Include="Frontend\Shared\SidePartnerships.ascx" />
@@ -272,6 +275,7 @@
     <Compile Include="Admin\UserManagement\New.aspx.designer.cs">
       <DependentUpon>New.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Helpers.cs" />
     <Compile Include="Frontend\About\Clients.aspx.cs">
       <DependentUpon>Clients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,6 +381,27 @@
     <Compile Include="Frontend\News\NewsDetails.aspx.designer.cs">
       <DependentUpon>NewsDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\Projects\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Projects\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Projects\LeftMenu.ascx.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Projects\LeftMenu.ascx.designer.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Projects\ProjectsList.aspx.cs">
+      <DependentUpon>ProjectsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Projects\ProjectsList.aspx.designer.cs">
+      <DependentUpon>ProjectsList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Shared\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -427,6 +452,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HEW.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Repositories\ProjectsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -443,7 +469,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Content\" />
-    <Folder Include="App_Code\" />
     <Folder Include="Frontend\Board\" />
     <Folder Include="Frontend\Partnerships\" />
     <Folder Include="Frontend\Projects\Images\Gallery\" />
