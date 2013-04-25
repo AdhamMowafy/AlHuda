@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db4c91ca28939f45ca85bda14600b02d88" Class="HEWDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=4c91ca28-939f-45ca-85bd-a14600b02d88.sqlserver.sequelizer.com;Initial Catalog=db4c91ca28939f45ca85bda14600b02d88;User ID=mccmgabrlaboahvo;MultipleActiveResultSets=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HEWConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_UserRolse" Member="UserRolses" ThisKey="ID" OtherKey="UserID" Type="UserRolse" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Capabilities" Member="Capabilities">
+    <Type Name="Capability">
+      <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.News" Member="News">
     <Type Name="New">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -7,23 +23,41 @@
       <Column Name="Body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="IsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Vacancies" Member="Vacancies">
-    <Type Name="Vacancy">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Vacancy" Member="Vacancy1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="JobDescribtion" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="RequiredSkills" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Openings" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="DueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="IsPublished" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImgPublicID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Newsletter" Member="Newsletters">
     <Type Name="Newsletter">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Projects" Member="Projects">
+    <Type Name="Project">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IsHome" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSide" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Project_ProjectsImage" Member="ProjectsImages" ThisKey="ID" OtherKey="ProjectID" Type="ProjectsImage" />
+      <Association Name="ProjectsCategory_Project" Member="ProjectsCategory" ThisKey="CategoryID" OtherKey="ID" Type="ProjectsCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectsCategories" Member="ProjectsCategories">
+    <Type Name="ProjectsCategory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Order]" Member="Order" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="ProjectsCategory_Project" Member="Projects" ThisKey="ID" OtherKey="CategoryID" Type="Project" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectsImages" Member="ProjectsImages">
+    <Type Name="ProjectsImage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImgPublicID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Project_ProjectsImage" Member="Project" ThisKey="ProjectID" OtherKey="ID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Roles" Member="Roles">
@@ -42,48 +76,25 @@
       <Association Name="User_UserRolse" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsActive" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Association Name="User_UserRolse" Member="UserRolses" ThisKey="ID" OtherKey="UserID" Type="UserRolse" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProjectsImages" Member="ProjectsImages">
-    <Type Name="ProjectsImage">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ImgPublicID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Project_ProjectsImage" Member="Project" ThisKey="ProjectID" OtherKey="ID" Type="Project" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Capabilities" Member="Capabilities">
-    <Type Name="Capability">
-      <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Projects" Member="Projects">
-    <Type Name="Project">
+  <Table Name="dbo.VacanciesCategories" Member="VacanciesCategories">
+    <Type Name="VacanciesCategory">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="VacanciesCategory_Vacancy" Member="Vacancy" ThisKey="ID" OtherKey="ID" Type="Vacancy" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vacancies" Member="Vacancies">
+    <Type Name="Vacancy">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Vacancy" Member="Vacancy1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="IsHome" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsSide" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
-      <Association Name="Project_ProjectsImage" Member="ProjectsImages" ThisKey="ID" OtherKey="ProjectID" Type="ProjectsImage" />
-      <Association Name="ProjectsCategory_Project" Member="ProjectsCategory" ThisKey="CategoryID" OtherKey="ID" Type="ProjectsCategory" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProjectsCategories" Member="ProjectsCategories">
-    <Type Name="ProjectsCategory">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="[Order]" Member="Order" Type="System.Int16" DbType="SmallInt" CanBeNull="false" />
-      <Association Name="ProjectsCategory_Project" Member="Projects" ThisKey="ID" OtherKey="CategoryID" Type="Project" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="JobDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="RequiredSkills" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Openings" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="OpeningDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="VacanciesCategory_Vacancy" Member="VacanciesCategory" ThisKey="ID" OtherKey="ID" Type="VacanciesCategory" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -90,6 +90,7 @@
     <Content Include="Admin\Projects\ProjectImages.aspx" />
     <Content Include="Admin\UserManagement\Default.aspx" />
     <Content Include="Admin\UserManagement\New.aspx" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\client1.jpg" />
     <Content Include="Content\images\code_background.png" />
     <Content Include="Content\images\dotted_line.png" />
@@ -161,6 +162,8 @@
     <Content Include="Frontend\Default.aspx" />
     <Content Include="Frontend\News\Default.aspx" />
     <Content Include="Frontend\News\NewsDetails.aspx" />
+    <Content Include="Frontend\Partnerships\Default.aspx" />
+    <Content Include="Frontend\Partnerships\LeftMenu.ascx" />
     <Content Include="Frontend\Projects\Default.aspx" />
     <Content Include="Frontend\Projects\LeftMenu.ascx" />
     <Content Include="Frontend\Projects\ProjectsList.aspx" />
@@ -177,6 +180,18 @@
     <Content Include="Content\style\fonts\Knowledge-Bold.otf" />
     <Content Include="Content\style\fonts\Knowledge-Light.otf" />
     <Content Include="Content\style\fonts\Knowledge-UltraLight.otf" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.svgz" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\ge-ss-med.eot" />
+    <Content Include="Content\font\ge-ss-med.ttf" />
+    <Content Include="Content\font\Knowledge-Black.otf" />
+    <Content Include="Content\font\Knowledge-Bold.otf" />
+    <Content Include="Content\font\Knowledge-Light.otf" />
+    <Content Include="Content\font\Knowledge-Medium.otf" />
+    <Content Include="Content\font\Knowledge-Regular.otf" />
+    <Content Include="Content\font\Knowledge-UltraLight.otf" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Global.asax" />
@@ -381,6 +396,20 @@
     <Compile Include="Frontend\News\NewsDetails.aspx.designer.cs">
       <DependentUpon>NewsDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\Partnerships\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Partnerships\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Partnerships\LeftMenu.ascx.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Partnerships\LeftMenu.ascx.designer.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Projects\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -452,6 +481,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HEW.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Repositories\CareersRepository.cs" />
     <Compile Include="Model\Repositories\ProjectsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -470,7 +500,6 @@
   <ItemGroup>
     <Folder Include="Admin\Content\" />
     <Folder Include="Frontend\Board\" />
-    <Folder Include="Frontend\Partnerships\" />
     <Folder Include="Frontend\Projects\Images\Gallery\" />
     <Folder Include="Frontend\Projects\Images\Original\" />
     <Folder Include="Frontend\Projects\Images\Thumbnail\" />

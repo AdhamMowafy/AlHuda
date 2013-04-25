@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HEW.Frontend.Careers {
+namespace HEW.Frontend.Partnerships {
     
     
     public partial class Default {
         
         /// <summary>
-        /// rptCareers control.
+        /// LeftMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptCareers;
+        protected global::HEW.Frontend.Partnerships.LeftMenu LeftMenu;
+        
+        /// <summary>
+        /// SideProjects control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::HEW.Frontend.Shared.SideProjects SideProjects;
     }
 }
