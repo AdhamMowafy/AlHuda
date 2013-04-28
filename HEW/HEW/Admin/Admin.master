@@ -1,25 +1,46 @@
-﻿<%@ Master Language="C#" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="HEW.Admin.Admin" %>
+
+<%@ Register Src="~/Admin/Shared/LeftMenu.ascx" TagPrefix="uc1" TagName="LeftMenu" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head runat="server">
-        <title></title>
-        <asp:ContentPlaceHolder id="HeadPlaceHolder" runat="server">
-            </asp:ContentPlaceHolder>
-    </head>
-    <body>
-        <form id="form1" runat="server">
-            <script type="text/javascript">
-                function ConfirmationMsg(delName) {
-                    return confirm("Are you sure you want to delete " + delName + "?");
-                }
-            </script>
-            <div>
-                <asp:ContentPlaceHolder id="BodyPlaceHolder" runat="server">
-        
-                </asp:ContentPlaceHolder>
+<head runat="server">
+    <title>Administration Area</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link href="/Admin/Content/styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/Admin/Content/styles/wysiwyg.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Start -->
+    <link href="/Admin/Content/themes/blue/styles.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <script type="text/javascript">
+            function ConfirmationMsg(delName) {
+                return confirm("Are you sure you want to delete " + delName + "?");
+            }
+        </script>
+        <div id="header">
+            <a href="/Admin/">
+                <img src="/Content/images/logo.jpg" alt="Control Panel" class="logo" /></a>
+        </div>
+
+
+        <asp:ContentPlaceHolder ID="BodyPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <div id="leftside">
+            <div class="user">
+                <p>Logged in as:</p>
+                <p class="username">Administrator</p>
+                <p class="userbtn">
+                    <asp:LinkButton runat="server" ID="lnkLogOut" Text="Log Out" OnClick="lnkLogOut_Click"></asp:LinkButton>
+                </p>
             </div>
-        </form>
-    </body>
+            <uc1:LeftMenu runat="server" ID="LeftMenu" />
+        </div>
+    </form>
+</body>
 </html>

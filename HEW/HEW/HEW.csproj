@@ -81,6 +81,66 @@
   <ItemGroup>
     <Content Include="Admin\Careers\Default.aspx" />
     <Content Include="Admin\Careers\New.aspx" />
+    <Content Include="Admin\Content\images\avatar.png" />
+    <Content Include="Admin\Content\images\bg_body_left.png" />
+    <Content Include="Admin\Content\images\bg_breadcrumb.png" />
+    <Content Include="Admin\Content\images\bg_btn_grey_lrg.png" />
+    <Content Include="Admin\Content\images\bg_btn_grey_sml.png" />
+    <Content Include="Admin\Content\images\bg_fade_blue_med.png" />
+    <Content Include="Admin\Content\images\bg_fade_green_med.png" />
+    <Content Include="Admin\Content\images\bg_fade_green_sml.png" />
+    <Content Include="Admin\Content\images\bg_fade_med.png" />
+    <Content Include="Admin\Content\images\bg_fade_red_med.png" />
+    <Content Include="Admin\Content\images\bg_fade_red_sml.png" />
+    <Content Include="Admin\Content\images\bg_fade_sml.png" />
+    <Content Include="Admin\Content\images\bg_fade_up.png" />
+    <Content Include="Admin\Content\images\bg_fade_yellow_med.png" />
+    <Content Include="Admin\Content\images\bg_footer.png" />
+    <Content Include="Admin\Content\images\bg_grey_dark_med.png" />
+    <Content Include="Admin\Content\images\bg_header.png" />
+    <Content Include="Admin\Content\images\bg_heading.png" />
+    <Content Include="Admin\Content\images\bg_leftside.png" />
+    <Content Include="Admin\Content\images\bg_left_spacer.png" />
+    <Content Include="Admin\Content\images\bg_navigation_link.png" />
+    <Content Include="Admin\Content\images\bg_noticebox_grey.png" />
+    <Content Include="Admin\Content\images\bg_noticebox_yellow.png" />
+    <Content Include="Admin\Content\images\bg_td_alt.png" />
+    <Content Include="Admin\Content\images\bg_th.png" />
+    <Content Include="Admin\Content\images\bg_usage_green.png" />
+    <Content Include="Admin\Content\images\bg_usage_orange.png" />
+    <Content Include="Admin\Content\images\bg_usage_red.png" />
+    <Content Include="Admin\Content\images\cp_logo.png" />
+    <Content Include="Admin\Content\images\cp_logo_login.png" />
+    <Content Include="Admin\Content\images\icons\icon_approve.png" />
+    <Content Include="Admin\Content\images\icons\icon_breadcrumb.png" />
+    <Content Include="Admin\Content\images\icons\icon_bullet.png" />
+    <Content Include="Admin\Content\images\icons\icon_cross_sml.png" />
+    <Content Include="Admin\Content\images\icons\icon_delete.png" />
+    <Content Include="Admin\Content\images\icons\icon_edit.png" />
+    <Content Include="Admin\Content\images\icons\icon_error.png" />
+    <Content Include="Admin\Content\images\icons\icon_info.png" />
+    <Content Include="Admin\Content\images\icons\icon_missing.png" />
+    <Content Include="Admin\Content\images\icons\icon_square_close.png" />
+    <Content Include="Admin\Content\images\icons\icon_success.png" />
+    <Content Include="Admin\Content\images\icons\icon_ticklist.png" />
+    <Content Include="Admin\Content\images\icons\icon_unapprove.png" />
+    <Content Include="Admin\Content\images\icons\icon_warning.png" />
+    <Content Include="Admin\Content\images\jquery.wysiwyg.gif" />
+    <Content Include="Admin\Content\images\loading.gif" />
+    <Content Include="Admin\Content\images\login_fade.png" />
+    <Content Include="Admin\Content\images\news_temp.png" />
+    <Content Include="Admin\Content\styles\layout.css" />
+    <Content Include="Admin\Content\styles\login.css" />
+    <Content Include="Admin\Content\styles\wysiwyg.css" />
+    <Content Include="Admin\Content\themes\blue\img\bg_buttons.png" />
+    <Content Include="Admin\Content\themes\blue\img\bg_buttons_alternative.png" />
+    <Content Include="Admin\Content\themes\blue\img\bg_heading_alt.png" />
+    <Content Include="Admin\Content\themes\blue\img\bg_login_btn.png" />
+    <Content Include="Admin\Content\themes\blue\img\bg_login_input.png" />
+    <Content Include="Admin\Content\themes\blue\img\bg_navigation.png" />
+    <Content Include="Admin\Content\themes\blue\img\bg_navigation_selected.png" />
+    <Content Include="Admin\Content\themes\blue\img\bg_notify_count.png" />
+    <Content Include="Admin\Content\themes\blue\styles.css" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\NewsLetter\Default.aspx" />
     <Content Include="Admin\News\Default.aspx" />
@@ -88,14 +148,26 @@
     <Content Include="Admin\Projects\Default.aspx" />
     <Content Include="Admin\Projects\New.aspx" />
     <Content Include="Admin\Projects\ProjectImages.aspx" />
+    <Content Include="Admin\scripts\functions.js" />
+    <Content Include="Admin\scripts\jquery.wysiwyg.js" />
+    <Content Include="Admin\scripts\png_fix.js" />
+    <Content Include="Admin\scripts\visualize.jQuery.js" />
+    <Content Include="Admin\Shared\LeftMenu.ascx" />
     <Content Include="Admin\UserManagement\Default.aspx" />
     <Content Include="Admin\UserManagement\New.aspx" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\images\about-banner.jpg" />
+    <Content Include="Content\images\bx_loader.gif" />
+    <Content Include="Content\images\careers-banner.jpg" />
     <Content Include="Content\images\client1.jpg" />
+    <Content Include="Content\images\close.png" />
     <Content Include="Content\images\code_background.png" />
+    <Content Include="Content\images\content-box.png" />
+    <Content Include="Content\images\controls.png" />
     <Content Include="Content\images\dotted_line.png" />
     <Content Include="Content\images\dropdown_plus.png" />
     <Content Include="Content\images\fbicon.png" />
+    <Content Include="Content\images\footer-arrow.png" />
     <Content Include="Content\images\icon_arrow_left_black.png" />
     <Content Include="Content\images\icon_arrow_left_white.png" />
     <Content Include="Content\images\icon_arrow_margin_right_black.png" />
@@ -115,19 +187,43 @@
     <Content Include="Content\images\imageslider3.jpg" />
     <Content Include="Content\images\imageslider4.jpg" />
     <Content Include="Content\images\imageslider5.jpg" />
+    <Content Include="Content\images\left.png" />
     <Content Include="Content\images\leftarrow.png" />
     <Content Include="Content\images\linkedinicon.png" />
     <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\maincontenttopimage.jpg" />
     <Content Include="Content\images\news1.jpg" />
     <Content Include="Content\images\news2.jpg" />
     <Content Include="Content\images\notification_error.png" />
     <Content Include="Content\images\notification_info.png" />
     <Content Include="Content\images\notification_success.png" />
+    <Content Include="Content\images\partner-box.png" />
+    <Content Include="Content\images\partner-logo.png" />
+    <Content Include="Content\images\partners-banner.jpg" />
+    <Content Include="Content\images\pic1.jpg" />
+    <Content Include="Content\images\pic2.png" />
     <Content Include="Content\images\preloader.gif" />
+    <Content Include="Content\images\project.png" />
     <Content Include="Content\images\project1.jpg" />
+    <Content Include="Content\images\projects-banner.jpg" />
+    <Content Include="Content\images\ProjectsCategories\1.jpg" />
+    <Content Include="Content\images\ProjectsCategories\2.jpg" />
+    <Content Include="Content\images\ProjectsCategories\3.jpg" />
+    <Content Include="Content\images\ProjectsCategories\4.jpg" />
+    <Content Include="Content\images\ProjectsCategories\5.jpg" />
+    <Content Include="Content\images\ProjectsCategories\6.jpg" />
+    <Content Include="Content\images\ProjectsCategories\7.jpg" />
+    <Content Include="Content\images\ProjectsCategories\8.jpg" />
+    <Content Include="Content\images\right-small.png" />
+    <Content Include="Content\images\right.png" />
     <Content Include="Content\images\rightarrow.png" />
+    <Content Include="Content\images\social-fb.png" />
+    <Content Include="Content\images\social-google.png" />
+    <Content Include="Content\images\social-linked.png" />
+    <Content Include="Content\images\social-twitter.png" />
     <Content Include="Content\images\subscribebutton.png" />
+    <Content Include="Content\images\svg-gradient.svg" />
     <Content Include="Content\images\twittericon.png" />
     <Content Include="Content\style\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\style\images\ui-bg_flat_0_eeeeee_40x100.png" />
@@ -206,6 +302,13 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.master.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.master.designer.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Careers\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +378,13 @@
     </Compile>
     <Compile Include="Admin\Projects\ProjectImages.aspx.designer.cs">
       <DependentUpon>ProjectImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Shared\LeftMenu.ascx.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Shared\LeftMenu.ascx.designer.cs">
+      <DependentUpon>LeftMenu.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserManagement\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -483,6 +593,7 @@
     </Compile>
     <Compile Include="Model\Repositories\CareersRepository.cs" />
     <Compile Include="Model\Repositories\ProjectsRepository.cs" />
+    <Compile Include="Model\Repositories\UsersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -498,7 +609,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Content\" />
     <Folder Include="Frontend\Board\" />
     <Folder Include="Frontend\Projects\Images\Gallery\" />
     <Folder Include="Frontend\Projects\Images\Original\" />

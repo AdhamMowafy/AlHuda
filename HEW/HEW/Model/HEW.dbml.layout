@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 9.5" name="HEW">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 9.75" name="HEW">
   <DataContextMoniker Name="/HEWDataContext" />
   <nestedChildShapes>
     <classShape Id="8cff2b5c-baf6-4ef4-a2a1-54e02de2731d" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
@@ -44,16 +44,10 @@
         <elementListCompartment Id="b22f3c54-0df9-4408-b122-d52ddd49cd98" absoluteBounds="9.2650000005960464, 4.71000000089407, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9d74e302-9551-46e5-a525-55ae24e54bca" absoluteBounds="0.75, 1, 2, 1.1939925130208338">
+    <classShape Id="9d74e302-9551-46e5-a525-55ae24e54bca" absoluteBounds="0.75, 1, 2, 1.1939925130208333">
       <DataClassMoniker Name="/HEWDataContext/Role" />
       <nestedChildShapes>
         <elementListCompartment Id="8b6e2985-f8a3-4f8e-af1c-67253702c8e0" absoluteBounds="0.76500000059604645, 1.4600000008940697, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="dcfb0b3e-7eea-47bf-adbe-ac8e3c8ce6df" absoluteBounds="3.5, 0.875, 2, 1.3862939453124996">
-      <DataClassMoniker Name="/HEWDataContext/UserRolse" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f1b2f208-f3d6-4f1a-9578-b732992ab813" absoluteBounds="3.5150000005960464, 1.3350000008940697, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(5.75 : 4.94314697265625); (6.5 : 4.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
@@ -70,37 +64,43 @@
         <classShapeMoniker Id="7b07f34a-7560-48f6-85eb-6c1719647c5f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.59699625651042); (3.5 : 1.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HEWDataContext/Role/Role_UserRolse" />
-      <nodes>
-        <classShapeMoniker Id="9d74e302-9551-46e5-a525-55ae24e54bca" />
-        <classShapeMoniker Id="dcfb0b3e-7eea-47bf-adbe-ac8e3c8ce6df" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.96874999989445); (3.59375 : 3.96874999989445); (3.59375 : 2.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HEWDataContext/User/User_UserRolse" />
-      <nodes>
-        <classShapeMoniker Id="8cff2b5c-baf6-4ef4-a2a1-54e02de2731d" />
-        <classShapeMoniker Id="dcfb0b3e-7eea-47bf-adbe-ac8e3c8ce6df" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="b7c81a5b-d580-4b36-97eb-2910574123a9" absoluteBounds="0.75, 7.375, 2, 1.1939925130208344">
+    <classShape Id="b7c81a5b-d580-4b36-97eb-2910574123a9" absoluteBounds="0.75, 7.625, 2, 1.1939925130208344">
       <DataClassMoniker Name="/HEWDataContext/VacanciesCategory" />
       <nestedChildShapes>
-        <elementListCompartment Id="3c326053-87ad-4e43-919f-097fe54bfa2f" absoluteBounds="0.76500000000000057, 7.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3c326053-87ad-4e43-919f-097fe54bfa2f" absoluteBounds="0.76500000000000057, 8.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f6c2cd10-8a12-4ed7-9b69-5d2b7071c41c" absoluteBounds="3.875, 6.75, 2, 2.5401025390625">
+    <classShape Id="f6c2cd10-8a12-4ed7-9b69-5d2b7071c41c" absoluteBounds="3.5, 7, 2, 2.5401025390624987">
       <DataClassMoniker Name="/HEWDataContext/Vacancy" />
       <nestedChildShapes>
-        <elementListCompartment Id="103a2290-941c-440b-be39-695257543575" absoluteBounds="3.8899999999999997, 7.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="103a2290-941c-440b-be39-695257543575" absoluteBounds="3.5149999999999997, 7.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 7.97199625651042); (3.875 : 7.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.22199625651042); (3.5 : 8.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HEWDataContext/VacanciesCategory/VacanciesCategory_Vacancy" />
       <nodes>
         <classShapeMoniker Id="b7c81a5b-d580-4b36-97eb-2910574123a9" />
         <classShapeMoniker Id="f6c2cd10-8a12-4ed7-9b69-5d2b7071c41c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cd57579f-1071-4054-b2cb-6ed16ecbfc61" absoluteBounds="3.5, 0.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/HEWDataContext/UserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60f740ba-11a6-4438-ba3c-61d9bbc60580" absoluteBounds="3.5149999999999997, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.59699625651042); (3.5 : 1.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HEWDataContext/Role/Role_UserRole" />
+      <nodes>
+        <classShapeMoniker Id="9d74e302-9551-46e5-a525-55ae24e54bca" />
+        <classShapeMoniker Id="cd57579f-1071-4054-b2cb-6ed16ecbfc61" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.96874999989445); (3.59375 : 3.96874999989445); (3.59375 : 2.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HEWDataContext/User/User_UserRole" />
+      <nodes>
+        <classShapeMoniker Id="8cff2b5c-baf6-4ef4-a2a1-54e02de2731d" />
+        <classShapeMoniker Id="cd57579f-1071-4054-b2cb-6ed16ecbfc61" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
