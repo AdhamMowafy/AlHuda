@@ -22,11 +22,25 @@ namespace HEW.Admin.Projects
         {
             try
             {
-                Account account = new Account("dlyvxs7of", "634626974285569", "FtB_0jhcmFypFS7QTwCBKcPRGzE");
+                if (
+                    !Directory.Exists(
+                        Server.MapPath("/FrontEnd/Projects/Images/Original/" + Request.QueryString["ProjectID"] + "/")))
+                {
+                    Directory.CreateDirectory(
+                        Server.MapPath("/FrontEnd/Projects/Images/Original/" + Request.QueryString["ProjectID"] + "/"));
+                }
+                string path =
+                    Server.MapPath("/FrontEnd/Projects/Images/Original/" + Request.QueryString["ProjectID"] + "/") +
+                    Guid.NewGuid() + "." + e.FileName.Split('.')[1];
+                AjaxFileUpload1.SaveAs(path);
+
+                Account account = new Account("dlyvxs7of", "634626974285569",
+                                              "FtB_0jhcmFypFS7QTwCBKcPRGzE");
+                FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read);
                 Cloudinary cloudinary = new Cloudinary(account);
-                ImageUploadParams uploadParams = new ImageUploadParams
+                ImageUploadParams uploadParams = new ImageUploadParams()
                     {
-                        File = new FileDescription("file", new MemoryStream(e.GetContents()))
+                        File = new FileDescription("file", file)
                     };
 
                 ImageUploadResult uploadResult = cloudinary.Upload(uploadParams);
@@ -35,6 +49,8 @@ namespace HEW.Admin.Projects
                 context.ProjectsImages.InsertOnSubmit(new ProjectsImage
                     {ImgPublicID = uploadResult.PublicId, ProjectID = int.Parse(Request.QueryString["ProjectID"])});
                 context.SubmitChanges();
+
+                File.Delete(path);
             }
             catch (Exception)
             {
