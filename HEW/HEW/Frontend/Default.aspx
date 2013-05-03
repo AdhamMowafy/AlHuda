@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/Content/style/style.css" />
     <link rel="stylesheet" type="text/css" href="/Content/style/responsive.css" />
     <!--js-->
-    <script type="text/javascript" src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" src="/Scripts/jquery-ui-1.9.2.custom.min.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.carouFredSel-5.6.4-packed.js"></script>
@@ -159,9 +159,9 @@
                                         <asp:Repeater runat="server" ID="rptNews">
                                             <ItemTemplate>
                                                 <li>
-                                                    <h1><a href="#"><%#Eval("Title") %></a></h1>
+                                                    <h1><a href="/Frontend/News/NewsDetails.aspx?ID=<%#Eval("ID") %>"><%#Eval("Title") %></a></h1>
                                                     <div class="image">
-                                                        <img alt="" src="/FrontEnd/News/Images/<%#Eval("ID") %>/Thumbnail.jpg" />
+                                                        <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_84,w_106/<%#Eval("ImgPublicID") %>.jpg" />
                                                     </div>
                                                     <p><%#Eval("Body") %></p>
                                                     <div class="clearfix"></div>

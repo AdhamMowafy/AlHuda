@@ -129,9 +129,8 @@ namespace HEW.Admin.Projects
             HEWDataContext context = new HEWDataContext();
             ProjectsImage image = context.ProjectsImages.SingleOrDefault(i=>i.ID == int.Parse(imageID));
 
-            CloudinaryDotNet.Account account = new CloudinaryDotNet.Account("dlyvxs7of", "634626974285569",
-                                                                            "FtB_0jhcmFypFS7QTwCBKcPRGzE");
-            CloudinaryDotNet.Cloudinary cloudinary = new CloudinaryDotNet.Cloudinary(account);
+            Account account = new Account("dlyvxs7of", "634626974285569", "FtB_0jhcmFypFS7QTwCBKcPRGzE");
+            Cloudinary cloudinary = new Cloudinary(account);
             cloudinary.DeleteResources(new [] {image.ImgPublicID});
             
             context.ProjectsImages.DeleteOnSubmit(image);

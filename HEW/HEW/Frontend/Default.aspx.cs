@@ -21,8 +21,11 @@ namespace HEW.Frontend
         private void GetHomeNews()
         {
             HEWDataContext context = new HEWDataContext();
-            IEnumerable<New> homeNews =
-                context.News.Where(i => i.IsPublished).OrderByDescending(i => i.PublishDate).Take(2).ToList();
+            var ss =
+               
+                context.News.Where(i => i.IsPublished).OrderByDescending(i => i.PublishDate).Take(2);
+            IEnumerable<New> homeNews =   
+            context.News.Where(i => i.IsPublished).OrderByDescending(i => i.PublishDate).Take(2).ToList();
             rptNews.DataSource = homeNews;
             rptNews.DataBind();
         }

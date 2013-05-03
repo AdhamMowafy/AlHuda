@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace HEW.Frontend.News
 {
@@ -11,7 +6,13 @@ namespace HEW.Frontend.News
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            GetNewsList();
+        }
 
+        private void GetNewsList()
+        {
+            rptNews.DataSource = Model.Repositories.NewsRepository.GetPublishedNewsList();
+            rptNews.DataBind();
         }
     }
 }

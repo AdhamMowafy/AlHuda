@@ -7,7 +7,7 @@
     </div>
     <div class="header_right">
         <div class="miniMenu">
-            <a href="#">contact us</a> <a href="/Frontend/Careers/">careers</a>
+            <a href="/Frontend/Contact/">contact us</a> <a href="/Frontend/Careers/">careers</a>
         </div>
         <ul class="sf-menu">
             <li class="<%=StrHomeSelected %>">
@@ -96,7 +96,7 @@
                 </ul>
             </li>
             <li class="<%=StrNewsSelected %>">
-                <a href="#" title="News">News
+                <a href="/Frontend/News/" title="News">News
                 </a>
             </li>
         </ul>

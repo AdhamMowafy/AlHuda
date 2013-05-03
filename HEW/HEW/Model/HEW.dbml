@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db4c91ca28939f45ca85bda14600b02d88" Class="HEWDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=4c91ca28-939f-45ca-85bd-a14600b02d88.sqlserver.sequelizer.com;Initial Catalog=db4c91ca28939f45ca85bda14600b02d88;User ID=mccmgabrlaboahvo;MultipleActiveResultSets=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HEWConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="User_UserRole" Member="UserRoles" ThisKey="ID" OtherKey="UserID" Type="UserRole" />
-    </Type>
-  </Table>
   <Table Name="dbo.Capabilities" Member="Capabilities">
     <Type Name="Capability">
       <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VacanciesCategories" Member="VacanciesCategories">
+    <Type Name="VacanciesCategory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="VacanciesCategory_Vacancy" Member="Vacancy" ThisKey="ID" OtherKey="ID" Type="Vacancy" Cardinality="One" />
     </Type>
   </Table>
   <Table Name="dbo.News" Member="News">
@@ -67,11 +65,22 @@
       <Association Name="Role_UserRole" Member="UserRoles" ThisKey="ID" OtherKey="RoleID" Type="UserRole" />
     </Type>
   </Table>
-  <Table Name="dbo.VacanciesCategories" Member="VacanciesCategories">
-    <Type Name="VacanciesCategory">
+  <Table Name="dbo.UserRoles" Member="UserRoles">
+    <Type Name="UserRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="VacanciesCategory_Vacancy" Member="Vacancy" ThisKey="ID" OtherKey="ID" Type="Vacancy" Cardinality="One" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Role_UserRole" Member="Role" ThisKey="RoleID" OtherKey="ID" Type="Role" IsForeignKey="true" />
+      <Association Name="User_UserRole" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_UserRole" Member="UserRoles" ThisKey="ID" OtherKey="UserID" Type="UserRole" />
     </Type>
   </Table>
   <Table Name="dbo.Vacancies" Member="Vacancies">
@@ -86,15 +95,6 @@
       <Column Name="OpeningDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="IsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="VacanciesCategory_Vacancy" Member="VacanciesCategory" ThisKey="ID" OtherKey="ID" Type="VacanciesCategory" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserRoles" Member="UserRoles">
-    <Type Name="UserRole">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Role_UserRole" Member="Role" ThisKey="RoleID" OtherKey="ID" Type="Role" IsForeignKey="true" />
-      <Association Name="User_UserRole" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

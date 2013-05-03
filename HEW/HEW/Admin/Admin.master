@@ -12,6 +12,7 @@
     <link href="/Admin/Content/styles/wysiwyg.css" rel="stylesheet" type="text/css" />
     <!-- Theme Start -->
     <link href="/Admin/Content/themes/blue/styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
     <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
 </head>
