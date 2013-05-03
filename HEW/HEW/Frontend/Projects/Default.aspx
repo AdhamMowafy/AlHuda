@@ -5,12 +5,12 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>AL HUDA Engineering Works - About AL-HUDA</title>
+    <title>AL HUDA Engineering Works - Our Projects</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="image-banner about">
         <div class="image-banner-title">
-            <span class="title">PROJECTS CATEGORIES</span>
+            <span class="title">OUR PROJECTS</span>
         </div>
     </div>
     <div class="content">

@@ -4,8 +4,14 @@
 <%@ Register Src="~/Frontend/Projects/LeftMenu.ascx" TagPrefix="uc2" TagName="LeftMenu" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>AL HUDA Engineering Works - Our Projects</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="image-banner about">
+        <div class="image-banner-title">
+            <span class="title">OUR PROJECTS</span>
+        </div>
+    </div>
     <div class="content">
         <div class="left-sidebar">
             <uc2:LeftMenu runat="server" ID="LeftMenu" />

@@ -41,6 +41,7 @@ namespace HEW.Frontend.News
             if(newsItem == null || !newsItem.IsPublished)
                 Response.Redirect("Default.aspx");
 
+            Page.Title = "AL HUDA Engineering Works - " + newsItem.Title;
             strNewsImgPublicId = newsItem.ImgPublicID;
             strNewsTitle = newsItem.Title;
             strNewsBody = newsItem.Body;

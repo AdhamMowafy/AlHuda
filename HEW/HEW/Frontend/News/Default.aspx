@@ -4,12 +4,12 @@
 <%@ Register Src="~/Frontend/Shared/SideProjects.ascx" TagPrefix="uc1" TagName="SideProjects" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>AL HUDA Engineering Works - About AL-HUDA</title>
+    <title>AL HUDA Engineering Works - Latest News</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="image-banner about">
         <div class="image-banner-title">
-            <span class="title">ABOUT AL HUDA</span>
+            <span class="title">LATEST NEWS</span>
         </div>
     </div>
     <div class="content">
@@ -34,7 +34,7 @@
                                 <h2><a href="#"><%#Eval("Title") %></a></h2>
                                 <span>Date: <%# Convert.ToDateTime(Eval("PublishDate")).ToString("dd/MM/yyyy") %></span>
                                 <p><%#Eval("Body") %></p>
-                                <a href="NewsDetails?ID=<%#Eval("ID") %>" class="readmore">Read More</a>
+                                <a href="NewsDetails.aspx?ID=<%#Eval("ID") %>" class="readmore">Read More</a>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>

@@ -4,12 +4,11 @@
 <%@ Register Src="~/Frontend/Shared/SideProjects.ascx" TagPrefix="uc1" TagName="SideProjects" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>AL HUDA Engineering Works - About AL-HUDA</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="image-banner about">
         <div class="image-banner-title">
-            <span class="title">ABOUT AL HUDA</span>
+            <span class="title">LATEST NEWS</span>
         </div>
     </div>
     <div class="content">
