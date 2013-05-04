@@ -8,15 +8,17 @@ namespace HEW.Model.Repositories
     
     public class ProjectsRepository
     {
-        static HEWDataContext _ModelDbContext = new HEWDataContext();
+        static HEWDataContext _ModelDbContext;
 
         public static List<ProjectsCategory> GetProjectsCategories()
         {
+            _ModelDbContext = new HEWDataContext();
             return _ModelDbContext.ProjectsCategories.ToList();
         }
 
         public static IEnumerable GetProjectsByCategory(int projectCategory)
         {
+            _ModelDbContext = new HEWDataContext();
             return (from pr in _ModelDbContext.Projects
                     where pr.CategoryID == projectCategory
                     select new {pr.ID, pr.Name, ImgsCount = pr.ProjectsImages.Count}).ToList();
@@ -24,6 +26,7 @@ namespace HEW.Model.Repositories
 
         public static string GetRandomImg(int projectId, int count)
         {
+            _ModelDbContext = new HEWDataContext();
             Random rd = new Random();
             int rndImg = rd.Next(0, count);
             var project =
@@ -31,6 +34,12 @@ namespace HEW.Model.Repositories
             if (project != null)
                 return project.ImgPublicID;
             return "";
+        }
+
+        public static Project GetProjectItem(int projectId)
+        {
+            _ModelDbContext = new HEWDataContext();
+            return _ModelDbContext.Projects.SingleOrDefault(i => i.ID == projectId);
         }
     }
 }

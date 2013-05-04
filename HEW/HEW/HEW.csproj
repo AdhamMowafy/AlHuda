@@ -131,6 +131,7 @@
     <Content Include="Admin\Content\images\loading.gif" />
     <Content Include="Admin\Content\images\login_fade.png" />
     <Content Include="Admin\Content\images\news_temp.png" />
+    <Content Include="Admin\Content\images\whitelogo.png" />
     <Content Include="Admin\Content\styles\layout.css" />
     <Content Include="Admin\Content\styles\login.css" />
     <Content Include="Admin\Content\styles\wysiwyg.css" />
@@ -227,6 +228,7 @@
     <Content Include="Content\images\subscribebutton.png" />
     <Content Include="Content\images\svg-gradient.svg" />
     <Content Include="Content\images\twittericon.png" />
+    <Content Include="Content\images\whitelogo.png" />
     <Content Include="Content\style\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\style\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="Content\style\images\ui-bg_flat_55_ffffff_40x100.png" />
@@ -243,6 +245,7 @@
     <Content Include="Content\style\jquery-ui-1.9.2.custom.css" />
     <Content Include="Content\style\reset.css" />
     <Content Include="Content\style\responsive.css" />
+    <Content Include="Content\style\slideshows.css" />
     <Content Include="Content\style\style.css" />
     <Content Include="Content\style\superfish.css" />
     <Content Include="Frontend\About\Clients.aspx" />
