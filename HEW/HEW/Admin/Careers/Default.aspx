@@ -13,7 +13,6 @@
             <li>/</li>
             <li class="current">Careers</li>
         </ul>
-
     </div>
     <div id="rightside">
         <asp:UpdatePanel runat="server" ID="panel">

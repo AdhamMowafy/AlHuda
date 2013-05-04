@@ -22,7 +22,7 @@ namespace HEW.Frontend.About
         {
             HEWDataContext context = new HEWDataContext();
             Capability capability = context.Capabilities.SingleOrDefault();
-            strCapital = capability.NetAssestsDevelopment;
+            strCapital = capability.CapitalDevelopment;
             strNetAssets = capability.NetAssestsDevelopment;
             strStaff = capability.TotalEmployees;
         }

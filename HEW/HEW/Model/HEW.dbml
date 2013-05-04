@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db4c91ca28939f45ca85bda14600b02d88" Class="HEWDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=4c91ca28-939f-45ca-85bd-a14600b02d88.sqlserver.sequelizer.com;Initial Catalog=db4c91ca28939f45ca85bda14600b02d88;User ID=mccmgabrlaboahvo;MultipleActiveResultSets=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HEWConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Capabilities" Member="Capabilities">
-    <Type Name="Capability">
-      <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.VacanciesCategories" Member="VacanciesCategories">
     <Type Name="VacanciesCategory">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -95,6 +88,14 @@
       <Column Name="OpeningDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="IsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="VacanciesCategory_Vacancy" Member="VacanciesCategory" ThisKey="ID" OtherKey="ID" Type="VacanciesCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Capabilities" Member="Capabilities">
+    <Type Name="Capability">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

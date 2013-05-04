@@ -14,6 +14,7 @@ namespace HEW.Admin.Shared
         protected string strNewsletter;
         protected string strCareers;
         protected string strUsers;
+        protected string strCapabilities;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +25,7 @@ namespace HEW.Admin.Shared
                 strNewsletter = "<li><a href=\"/Admin/NewsLetter\">Newsletters</a></li>";
                 strCareers = "<li><a href=\"/Admin/Careers\">Careers</a></li>";
                 strUsers = "<li><a href=\"/Admin/UserManagement\">Users Management</a></li>";
+                strCapabilities = "<li><a href=\"/Admin/Capabilities\">Capabilities</a></li>";
             }
             else
             {
@@ -37,6 +39,8 @@ namespace HEW.Admin.Shared
                      strNewsletter = "<li><a href=\"/Admin/NewsLetter\">Newsletters</a></li>";
                  else if (HttpContext.Current.User.IsInRole("6"))
                      strUsers = "<li><a href=\"/Admin/UserManagement\">Users Management</a></li>";
+                 else if (HttpContext.Current.User.IsInRole("7"))
+                     strUsers = "<li><a href=\"/Admin/Capabilities\">Capabilities</a></li>";
             }
 
             if(Request.RawUrl.Trim().ToLower().Contains("/projects/"))
@@ -45,10 +49,12 @@ namespace HEW.Admin.Shared
                 strNews = "<li class=\"heading selected\">News</li>";
             else if (Request.RawUrl.Trim().ToLower().Contains("/careers/"))
                 strCareers = "<li class=\"heading selected\">careers</li>";
-            else if (Request.RawUrl.Trim().ToLower().Contains("/NewsLetter/"))
+            else if (Request.RawUrl.Trim().ToLower().Contains("/newsLetter/"))
                 strNewsletter = "<li class=\"heading selected\">Newsletter</li>";
-            else if (Request.RawUrl.Trim().ToLower().Contains("/UserManagement/"))
+            else if (Request.RawUrl.Trim().ToLower().Contains("/usermanagement/"))
                 strUsers = "<li class=\"heading selected\">Users Management</li>";
+            else if (Request.RawUrl.Trim().ToLower().Contains("/capabilities/"))
+                strCapabilities = "<li class=\"heading selected\">Capabilities</li>";
         }
     }
 }
