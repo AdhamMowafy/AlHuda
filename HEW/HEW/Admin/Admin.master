@@ -24,8 +24,8 @@
             }
         </script>
         <div id="header">
-            <a href="/Admin/">
-                <img src="/Content/images/logo.jpg" alt="Control Panel" class="logo" /></a>
+            <a href="/Admin/">                
+                <img src="/Content/images/whitelogo.png" alt="Control Panel" class="logo" /></a>
         </div>
 
 

@@ -14,8 +14,8 @@ body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 13px; 
 
 	/* Header Elements */
 	
-	#header {width: 100%; height: 70px; background: #353535 url(../images/bg_header.png) repeat-x bottom;}
-		.logo {float: left; padding: 20px 0 0 30px;}
+	#header {width: 100%; height: 90px; background: #353535 url(../images/bg_header.png) repeat-x bottom;}
+		.logo {float: left; padding:18px 0 0 26px;}
 	
 		#searcharea {float: right; padding: 15px 15px 0 0;}
 			#searcharea p {color: #ccc; padding-top: 10px;}
@@ -35,7 +35,7 @@ body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 13px; 
 					
 	/* Left Side/Navigation Elements */	
 	
-	#leftside {width: 225px; height: 100%; background: #525252 url(../images/bg_leftside.png) repeat-x top; position: absolute; top: 70px; border-right:1px solid #fff; padding-top: 10px;}
+	#leftside {width: 225px; height: 100%; background: #525252 url(../images/bg_leftside.png) repeat-x top; position: absolute; top: 89px; border-right:1px solid #fff; padding-top: 10px;}
 	
 		.user, .notifications {width:195px; padding: 15px; color: #ccc; overflow: auto; text-shadow: 1px 1px 1px #111; background: url(../images/bg_left_spacer.png) repeat-x bottom;}
 			.user img {float: left; margin: 5px 15px 10px 0;}
@@ -237,3 +237,27 @@ body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 13px; 
 	/* Footer */
 	
 	#footer {font-size: 11px; padding: 15px 10px; clear: both; background: url(../images/bg_footer.png) repeat-x bottom; margin-bottom: 20px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; -moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; text-shadow: 1px 1px 1px #fff;}
+
+.clear
+{
+    clear: both;
+}
+.imageWrap
+{
+    float:left;
+    margin-right:10px;
+    width:176px;
+}
+
+.delete
+{
+    background-color:red;
+    color:white;
+}
+    .delete a
+    {
+        color:white;
+        display:block;
+        text-align:center;
+        text-decoration:none;
+    }

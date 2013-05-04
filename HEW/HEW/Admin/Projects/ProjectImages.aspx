@@ -40,14 +40,16 @@
             AllowedFileTypes="jpg,jpeg,tiff,tif,pdf,bmp,png,gif"
             MaximumNumberOfFiles="10"
             runat="server" OnUploadComplete="UploadComplete" OnClientUploadComplete="uploadComplete" />
-        <div style="width: 300px">
+        <div>
             <asp:Repeater runat="server" ID="rptImages" DataSourceID="ldsProjectImages">
                 <ItemTemplate>
-                    <asp:Image runat="server" ImageUrl='<%# "http://res.cloudinary.com/dlyvxs7of/image/upload/h_162,w_176/" + Eval("ImgPublicID") + ".png" %>' />
-                    <br />
-                    <asp:LinkButton runat="server" OnClick="btnDelete_Click" CommandArgument='<%#Eval("ID")%>' Text="Delete" OnClientClick='<%# "return ConfirmationMsg(\"This Image\" );" %>'></asp:LinkButton>
-                </ItemTemplate>
+                    <div class="imageWrap">
+                    <div class="insertImage"><asp:Image runat="server" ImageUrl='<%# "http://res.cloudinary.com/dlyvxs7of/image/upload/h_162,w_176/" + Eval("ImgPublicID") + ".png" %>' /></div>
+                    <div class="delete"><asp:LinkButton runat="server" OnClick="btnDelete_Click" CommandArgument='<%#Eval("ID")%>' Text="Delete" OnClientClick='<%# "return ConfirmationMsg(\"This Image\" );" %>'></asp:LinkButton></div>
+                    </div> 
+               </ItemTemplate>
             </asp:Repeater>
+            <div class="clear"></div>
         </div>
         <asp:LinqDataSource runat="server" ID="ldsProjectImages" TableName="ProjectsImages" Where="ProjectID=@ProjectID" ContextTypeName="HEW.Model.HEWDataContext">
             <WhereParameters>

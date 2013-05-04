@@ -65,6 +65,7 @@
 
     <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" EnablePageMethods="true" runat="server">
     </ajaxToolkit:ToolkitScriptManager>
+    <div id="rightside">
     <div class="contentbox">
         <form action="#">
             <p>
@@ -108,4 +109,5 @@
             </p>
         </form>
     </div>
+        </div>
 </asp:Content>
