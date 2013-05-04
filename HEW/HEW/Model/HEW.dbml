@@ -88,11 +88,11 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Vacancy" Member="Vacancy1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="JobDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="RequiredSkills" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Openings" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="OpeningDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RequiredSkills" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Openings" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="OpeningDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="IsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="VacanciesCategory_Vacancy" Member="VacanciesCategory" ThisKey="ID" OtherKey="ID" Type="VacanciesCategory" IsForeignKey="true" />
     </Type>

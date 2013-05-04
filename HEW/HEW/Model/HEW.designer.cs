@@ -1656,9 +1656,9 @@ namespace HEW.Model
 		
 		private string _RequiredSkills;
 		
-		private System.Nullable<short> _Openings;
+		private short _Openings;
 		
-		private System.Nullable<System.DateTime> _OpeningDate;
+		private System.DateTime _OpeningDate;
 		
 		private bool _IsPublished;
 		
@@ -1680,9 +1680,9 @@ namespace HEW.Model
     partial void OnJobDescriptionChanged();
     partial void OnRequiredSkillsChanging(string value);
     partial void OnRequiredSkillsChanged();
-    partial void OnOpeningsChanging(System.Nullable<short> value);
+    partial void OnOpeningsChanging(short value);
     partial void OnOpeningsChanged();
-    partial void OnOpeningDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnOpeningDateChanging(System.DateTime value);
     partial void OnOpeningDateChanged();
     partial void OnIsPublishedChanging(bool value);
     partial void OnIsPublishedChanged();
@@ -1758,7 +1758,7 @@ namespace HEW.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Location
 		{
 			get
@@ -1798,7 +1798,7 @@ namespace HEW.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequiredSkills", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequiredSkills", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string RequiredSkills
 		{
 			get
@@ -1818,8 +1818,8 @@ namespace HEW.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Openings", DbType="SmallInt")]
-		public System.Nullable<short> Openings
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Openings", DbType="SmallInt NOT NULL")]
+		public short Openings
 		{
 			get
 			{
@@ -1838,8 +1838,8 @@ namespace HEW.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OpeningDate", DbType="Date")]
-		public System.Nullable<System.DateTime> OpeningDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OpeningDate", DbType="Date NOT NULL")]
+		public System.DateTime OpeningDate
 		{
 			get
 			{

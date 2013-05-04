@@ -66,52 +66,57 @@
     <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" EnablePageMethods="true" runat="server">
     </ajaxToolkit:ToolkitScriptManager>
     <div id="rightside">
-        <div class="contentbox">
-            <form action="#">
-                <p>
-                    <label for="<%=txtTitle.ClientID %>"><strong>Title:</strong></label>
-                    <asp:TextBox runat="server" ID="txtTitle" CssClass="inputbox"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ID="rqvTitle" ControlToValidate="txtTitle"
-                        ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
-                </p>
-                <p>
-                    <label for="<%=txtBody.ClientID %>"><strong>Body:</strong></label>
-                    <asp:TextBox runat="server" ID="txtBody" CssClass="inputbox" TextMode="MultiLine"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ID="rqvBody" ControlToValidate="txtBody"
-                        ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
-                </p>
-                <p>
-                    <label for="<%=txtPublishDate.ClientID %>"><strong>Publish Date:</strong></label>
-                    <asp:TextBox runat="server" ID="txtPublishDate" CssClass="inputbox"></asp:TextBox>
-                    <ajaxToolkit:CalendarExtender ID="CalendarExtender1" TargetControlID="txtPublishDate" runat="server" TodaysDateFormat="dd/MM/yyyy" DaysModeTitleFormat="dd/MM/yyyy" BehaviorID="cePublishDate" FirstDayOfWeek="Saturday" Format="dd/MM/yyyy" />
-                    <asp:RequiredFieldValidator runat="server" ID="rqvPublishDate" ControlToValidate="txtPublishDate"
-                        ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
-                </p>
-                <p>
-                    <asp:CheckBox runat="server" ID="cbIsPublished" Checked="True" />
-                    Is Published
-                </p>
-                <p>
-                    <ajaxToolkit:AsyncFileUpload ID="afuImage1"
-                        AllowedFileTypes="jpg,jpeg,tiff,tif,pdf,bmp,png,gif"
-                        OnClientUploadComplete="uploadComplete"
-                        runat="server" OnUploadedComplete="UploadComplete" />
+        <div class="contentcontainer med left">
+            <div class="headings alt">
+                <h2>Project Info</h2>
+            </div>
+            <div class="contentbox">
+                <form action="#">
                     <p>
-                        <a id="lnkCancel" href="JAVASCRIPT:void(0)" onclick="HideUploader()" title="">Cancel</a>
-                        <asp:Image ID="imgNews" runat="server" Visible="False" />
-                        <a id="lnkChange" href="JAVASCRIPT:void(0)" onclick="ShowUploader()" title="">Change</a>
-                        <asp:CustomValidator ID="cvImage" runat="server" ClientValidationFunction="vld" EnableClientScript="True" ErrorMessage="&lt;img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'&gt;&lt;br /&gt;&lt;span class='smltxt red'&gt;(This is a required field)&lt;/span&gt;"></asp:CustomValidator>
-                        <input type="hidden" id="hdnImage" runat="server" />
+                        <label for="<%=txtTitle.ClientID %>"><strong>Title:</strong></label>
+                        <asp:TextBox runat="server" ID="txtTitle" CssClass="inputbox"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ID="rqvTitle" ControlToValidate="txtTitle"
+                            ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
-                    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" CssClass="btn" />
-                    <input type="button" onclick="location = 'Default.aspx'" class="btnalt" value="Back" />
-                    <%if (Request.QueryString["ID"] != null)
-                      { %>
-                    <input type="button" onclick="location = location" class="btnalt" value="Reset" />
-                    <% } %>
-                    <br />
-                </p>
-            </form>
+                    <p>
+                        <label for="<%=txtBody.ClientID %>"><strong>Body:</strong></label>
+                        <asp:TextBox runat="server" ID="txtBody" CssClass="inputbox" TextMode="MultiLine"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ID="rqvBody" ControlToValidate="txtBody"
+                            ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
+                    </p>
+                    <p>
+                        <label for="<%=txtPublishDate.ClientID %>"><strong>Publish Date:</strong></label>
+                        <asp:TextBox runat="server" ID="txtPublishDate" CssClass="inputbox"></asp:TextBox>
+                        <ajaxToolkit:CalendarExtender ID="CalendarExtender1" TargetControlID="txtPublishDate" runat="server" TodaysDateFormat="dd/MM/yyyy" DaysModeTitleFormat="dd/MM/yyyy" BehaviorID="cePublishDate" FirstDayOfWeek="Saturday" Format="dd/MM/yyyy" />
+                        <asp:RequiredFieldValidator runat="server" ID="rqvPublishDate" ControlToValidate="txtPublishDate"
+                            ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
+                    </p>
+                    <p>
+                        <asp:CheckBox runat="server" ID="cbIsPublished" Checked="True" />
+                        Is Published
+                    </p>
+                    <p>
+                        <ajaxToolkit:AsyncFileUpload ID="afuImage1"
+                            AllowedFileTypes="jpg,jpeg,tiff,tif,pdf,bmp,png,gif"
+                            OnClientUploadComplete="uploadComplete"
+                            runat="server" OnUploadedComplete="UploadComplete" />
+                        <p>
+                            <a id="lnkCancel" href="JAVASCRIPT:void(0)" onclick="HideUploader()" title="">Cancel</a>
+                            <asp:Image ID="imgNews" runat="server" Visible="False" />
+                            <a id="lnkChange" href="JAVASCRIPT:void(0)" onclick="ShowUploader()" title="">Change</a>
+                            <asp:CustomValidator ID="cvImage" runat="server" ClientValidationFunction="vld" EnableClientScript="True" ErrorMessage="&lt;img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'&gt;&lt;br /&gt;&lt;span class='smltxt red'&gt;(This is a required field)&lt;/span&gt;"></asp:CustomValidator>
+                            <input type="hidden" id="hdnImage" runat="server" />
+                        </p>
+                        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" CssClass="btn" />
+                        <input type="button" onclick="location = 'Default.aspx'" class="btnalt" value="Back" />
+                        <%if (Request.QueryString["ID"] != null)
+                          { %>
+                        <input type="button" onclick="location = location" class="btnalt" value="Reset" />
+                        <% } %>
+                        <br />
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 </asp:Content>

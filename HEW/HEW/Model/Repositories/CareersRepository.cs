@@ -16,5 +16,10 @@ namespace HEW.Model.Repositories
         {
             return _ModelDbContext.Vacancies.Where(i=>i.IsPublished).ToList();
         }
+
+        public static Vacancy GetVacancy(int vacancyId)
+        {
+            return _ModelDbContext.Vacancies.SingleOrDefault(i => i.ID == vacancyId);
+        }
     }
 }
