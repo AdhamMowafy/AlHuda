@@ -15,7 +15,7 @@
     <div id="logincontainer">
         <div id="loginbox">
             <div id="loginheader">
-                <img src="/Content/images/logo.jpg" alt="Control Panel Login" />
+                <img src="/Content/images/whitelogo.png" alt="Control Panel Login" />
             </div>
             <div id="innerlogin">
                 <form runat="server" id="loginForm">
