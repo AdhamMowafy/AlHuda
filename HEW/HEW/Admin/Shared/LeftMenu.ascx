@@ -7,7 +7,7 @@
             <%=strNews %>
             <%=strCareers %>
             <%=strNewsletter %>
-            <%=strUsers %>
+            <%--<%=strUsers %>--%>
             <%=strCapabilities %>
         </ul>
     </li>
