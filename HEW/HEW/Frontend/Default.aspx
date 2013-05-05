@@ -163,7 +163,7 @@
                                                     <div class="image">
                                                         <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_84,w_106/<%#Eval("ImgPublicID") %>.jpg" />
                                                     </div>
-                                                    <p><%#Eval("Body") %></p>
+                                                    <p><%# Eval("Body") %></p>
                                                     <div class="clearfix"></div>
                                                 </li>
                                             </ItemTemplate>

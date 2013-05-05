@@ -26,5 +26,13 @@ namespace HEW
             }
             return table;
         }
+
+        public static string TrimString(string strText, int length)
+        {
+            if (strText.Length <= length)
+                return strText;
+
+            return strText.Substring(0, length) + "...";
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace HEW.Admin.Shared
                 strNews = "<li class=\"heading selected\">News</li>";
             else if (Request.RawUrl.Trim().ToLower().Contains("/careers/"))
                 strCareers = "<li class=\"heading selected\">careers</li>";
-            else if (Request.RawUrl.Trim().ToLower().Contains("/newsLetter/"))
+            else if (Request.RawUrl.Trim().ToLower().Contains("/newsletter/"))
                 strNewsletter = "<li class=\"heading selected\">Newsletter</li>";
             else if (Request.RawUrl.Trim().ToLower().Contains("/usermanagement/"))
                 strUsers = "<li class=\"heading selected\">Users Management</li>";

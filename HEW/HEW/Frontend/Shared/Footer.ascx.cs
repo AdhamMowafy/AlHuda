@@ -20,6 +20,9 @@ namespace HEW.Frontend.Shared
             HEWDataContext context = new HEWDataContext();
             IEnumerable<New> homeNews =
                 context.News.Where(i => i.IsPublished).OrderByDescending(i => i.PublishDate).Take(3).ToList();
+            foreach (var homeNew in homeNews)
+                homeNew.Title = Helpers.TrimString(homeNew.Title + " ", 40);
+            
             rptFooterNews.DataSource = homeNews;
             rptFooterNews.DataBind();
         }

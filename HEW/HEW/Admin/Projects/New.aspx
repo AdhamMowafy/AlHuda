@@ -12,7 +12,7 @@
                 <form action="#">
                     <p>
                         <label for="<%=txtName.ClientID %>"><strong>Name:</strong></label>
-                        <asp:TextBox runat="server" ID="txtName" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtName" CssClass="inputbox" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvTitle" ControlToValidate="txtName"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
@@ -29,7 +29,7 @@
                     </p>
                     <p>
                         <label for="<%=txtDescription.ClientID %>"><strong>Description:</strong></label>
-                        <asp:TextBox runat="server" ID="txtDescription" CssClass="inputbox" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDescription" CssClass="inputbox" TextMode="MultiLine" Columns="50" Rows="5"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvDescription" ControlToValidate="txtDescription"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>

@@ -57,12 +57,12 @@ namespace HEW.Model
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InsertVacancy(Vacancy instance);
-    partial void UpdateVacancy(Vacancy instance);
-    partial void DeleteVacancy(Vacancy instance);
     partial void InsertCapability(Capability instance);
     partial void UpdateCapability(Capability instance);
     partial void DeleteCapability(Capability instance);
+    partial void InsertVacancy(Vacancy instance);
+    partial void UpdateVacancy(Vacancy instance);
+    partial void DeleteVacancy(Vacancy instance);
     #endregion
 		
 		public HEWDataContext() : 
@@ -167,19 +167,19 @@ namespace HEW.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<Vacancy> Vacancies
-		{
-			get
-			{
-				return this.GetTable<Vacancy>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Capability> Capabilities
 		{
 			get
 			{
 				return this.GetTable<Capability>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Vacancy> Vacancies
+		{
+			get
+			{
+				return this.GetTable<Vacancy>();
 			}
 		}
 	}
@@ -194,7 +194,7 @@ namespace HEW.Model
 		
 		private string _Name;
 		
-		private EntityRef<Vacancy> _Vacancy;
+		private EntitySet<Vacancy> _Vacancies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -208,7 +208,7 @@ namespace HEW.Model
 		
 		public VacanciesCategory()
 		{
-			this._Vacancy = default(EntityRef<Vacancy>);
+			this._Vacancies = new EntitySet<Vacancy>(new Action<Vacancy>(this.attach_Vacancies), new Action<Vacancy>(this.detach_Vacancies));
 			OnCreated();
 		}
 		
@@ -252,32 +252,16 @@ namespace HEW.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VacanciesCategory_Vacancy", Storage="_Vacancy", ThisKey="ID", OtherKey="ID", IsUnique=true, IsForeignKey=false)]
-		public Vacancy Vacancy
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VacanciesCategory_Vacancy", Storage="_Vacancies", ThisKey="ID", OtherKey="CategoryID")]
+		public EntitySet<Vacancy> Vacancies
 		{
 			get
 			{
-				return this._Vacancy.Entity;
+				return this._Vacancies;
 			}
 			set
 			{
-				Vacancy previousValue = this._Vacancy.Entity;
-				if (((previousValue != value) 
-							|| (this._Vacancy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Vacancy.Entity = null;
-						previousValue.VacanciesCategory = null;
-					}
-					this._Vacancy.Entity = value;
-					if ((value != null))
-					{
-						value.VacanciesCategory = this;
-					}
-					this.SendPropertyChanged("Vacancy");
-				}
+				this._Vacancies.Assign(value);
 			}
 		}
 		
@@ -299,6 +283,18 @@ namespace HEW.Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Vacancies(Vacancy entity)
+		{
+			this.SendPropertyChanging();
+			entity.VacanciesCategory = this;
+		}
+		
+		private void detach_Vacancies(Vacancy entity)
+		{
+			this.SendPropertyChanging();
+			entity.VacanciesCategory = null;
 		}
 	}
 	
@@ -1578,6 +1574,140 @@ namespace HEW.Model
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Capabilities")]
+	public partial class Capability : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NetAssestsDevelopment;
+		
+		private string _CapitalDevelopment;
+		
+		private string _TotalEmployees;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNetAssestsDevelopmentChanging(string value);
+    partial void OnNetAssestsDevelopmentChanged();
+    partial void OnCapitalDevelopmentChanging(string value);
+    partial void OnCapitalDevelopmentChanged();
+    partial void OnTotalEmployeesChanging(string value);
+    partial void OnTotalEmployeesChanged();
+    #endregion
+		
+		public Capability()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NetAssestsDevelopment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string NetAssestsDevelopment
+		{
+			get
+			{
+				return this._NetAssestsDevelopment;
+			}
+			set
+			{
+				if ((this._NetAssestsDevelopment != value))
+				{
+					this.OnNetAssestsDevelopmentChanging(value);
+					this.SendPropertyChanging();
+					this._NetAssestsDevelopment = value;
+					this.SendPropertyChanged("NetAssestsDevelopment");
+					this.OnNetAssestsDevelopmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CapitalDevelopment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CapitalDevelopment
+		{
+			get
+			{
+				return this._CapitalDevelopment;
+			}
+			set
+			{
+				if ((this._CapitalDevelopment != value))
+				{
+					this.OnCapitalDevelopmentChanging(value);
+					this.SendPropertyChanging();
+					this._CapitalDevelopment = value;
+					this.SendPropertyChanged("CapitalDevelopment");
+					this.OnCapitalDevelopmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployees", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TotalEmployees
+		{
+			get
+			{
+				return this._TotalEmployees;
+			}
+			set
+			{
+				if ((this._TotalEmployees != value))
+				{
+					this.OnTotalEmployeesChanging(value);
+					this.SendPropertyChanging();
+					this._TotalEmployees = value;
+					this.SendPropertyChanged("TotalEmployees");
+					this.OnTotalEmployeesChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vacancies")]
 	public partial class Vacancy : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1645,10 +1775,6 @@ namespace HEW.Model
 			{
 				if ((this._ID != value))
 				{
-					if (this._VacanciesCategory.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnIDChanging(value);
 					this.SendPropertyChanging();
 					this._ID = value;
@@ -1689,6 +1815,10 @@ namespace HEW.Model
 			{
 				if ((this._CategoryID != value))
 				{
+					if (this._VacanciesCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCategoryIDChanging(value);
 					this.SendPropertyChanging();
 					this._CategoryID = value;
@@ -1818,7 +1948,7 @@ namespace HEW.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VacanciesCategory_Vacancy", Storage="_VacanciesCategory", ThisKey="ID", OtherKey="ID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VacanciesCategory_Vacancy", Storage="_VacanciesCategory", ThisKey="CategoryID", OtherKey="ID", IsForeignKey=true)]
 		public VacanciesCategory VacanciesCategory
 		{
 			get
@@ -1835,153 +1965,19 @@ namespace HEW.Model
 					if ((previousValue != null))
 					{
 						this._VacanciesCategory.Entity = null;
-						previousValue.Vacancy = null;
+						previousValue.Vacancies.Remove(this);
 					}
 					this._VacanciesCategory.Entity = value;
 					if ((value != null))
 					{
-						value.Vacancy = this;
-						this._ID = value.ID;
+						value.Vacancies.Add(this);
+						this._CategoryID = value.ID;
 					}
 					else
 					{
-						this._ID = default(int);
+						this._CategoryID = default(int);
 					}
 					this.SendPropertyChanged("VacanciesCategory");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Capabilities")]
-	public partial class Capability : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _NetAssestsDevelopment;
-		
-		private string _CapitalDevelopment;
-		
-		private string _TotalEmployees;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNetAssestsDevelopmentChanging(string value);
-    partial void OnNetAssestsDevelopmentChanged();
-    partial void OnCapitalDevelopmentChanging(string value);
-    partial void OnCapitalDevelopmentChanged();
-    partial void OnTotalEmployeesChanging(string value);
-    partial void OnTotalEmployeesChanged();
-    #endregion
-		
-		public Capability()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NetAssestsDevelopment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string NetAssestsDevelopment
-		{
-			get
-			{
-				return this._NetAssestsDevelopment;
-			}
-			set
-			{
-				if ((this._NetAssestsDevelopment != value))
-				{
-					this.OnNetAssestsDevelopmentChanging(value);
-					this.SendPropertyChanging();
-					this._NetAssestsDevelopment = value;
-					this.SendPropertyChanged("NetAssestsDevelopment");
-					this.OnNetAssestsDevelopmentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CapitalDevelopment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CapitalDevelopment
-		{
-			get
-			{
-				return this._CapitalDevelopment;
-			}
-			set
-			{
-				if ((this._CapitalDevelopment != value))
-				{
-					this.OnCapitalDevelopmentChanging(value);
-					this.SendPropertyChanging();
-					this._CapitalDevelopment = value;
-					this.SendPropertyChanged("CapitalDevelopment");
-					this.OnCapitalDevelopmentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployees", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TotalEmployees
-		{
-			get
-			{
-				return this._TotalEmployees;
-			}
-			set
-			{
-				if ((this._TotalEmployees != value))
-				{
-					this.OnTotalEmployeesChanging(value);
-					this.SendPropertyChanging();
-					this._TotalEmployees = value;
-					this.SendPropertyChanged("TotalEmployees");
-					this.OnTotalEmployeesChanged();
 				}
 			}
 		}

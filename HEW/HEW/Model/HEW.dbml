@@ -4,7 +4,7 @@
     <Type Name="VacanciesCategory">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="VacanciesCategory_Vacancy" Member="Vacancy" ThisKey="ID" OtherKey="ID" Type="Vacancy" Cardinality="One" />
+      <Association Name="VacanciesCategory_Vacancy" Member="Vacancies" ThisKey="ID" OtherKey="CategoryID" Type="Vacancy" />
     </Type>
   </Table>
   <Table Name="dbo.News" Member="News">
@@ -76,6 +76,14 @@
       <Association Name="User_UserRole" Member="UserRoles" ThisKey="ID" OtherKey="UserID" Type="UserRole" />
     </Type>
   </Table>
+  <Table Name="dbo.Capabilities" Member="Capabilities">
+    <Type Name="Capability">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Vacancies" Member="Vacancies">
     <Type Name="Vacancy">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -87,15 +95,7 @@
       <Column Name="Openings" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="OpeningDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="IsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="VacanciesCategory_Vacancy" Member="VacanciesCategory" ThisKey="ID" OtherKey="ID" Type="VacanciesCategory" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Capabilities" Member="Capabilities">
-    <Type Name="Capability">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NetAssestsDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CapitalDevelopment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TotalEmployees" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="VacanciesCategory_Vacancy" Member="VacanciesCategory" ThisKey="CategoryID" OtherKey="ID" Type="VacanciesCategory" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -22,19 +22,19 @@
                 <form action="#">
                     <p>
                         <label for="<%=txtAssetsDev.ClientID %>"><strong>Net Assets Development:</strong></label>
-                        <asp:TextBox runat="server" ID="txtAssetsDev" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtAssetsDev" CssClass="inputbox" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvVacancy" ControlToValidate="txtAssetsDev"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
                     <p>
                         <label for="<%=txtCapitalDev.ClientID %>"><strong>Net Assets Development:</strong></label>
-                        <asp:TextBox runat="server" ID="txtCapitalDev" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtCapitalDev" CssClass="inputbox" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtCapitalDev"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
                     <p>
                         <label for="<%=txtStaff.ClientID %>"><strong>Net Assets Development:</strong></label>
-                        <asp:TextBox runat="server" ID="txtStaff" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtStaff" CssClass="inputbox" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ControlToValidate="txtStaff"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>

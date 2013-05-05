@@ -74,13 +74,13 @@
                 <form action="#">
                     <p>
                         <label for="<%=txtTitle.ClientID %>"><strong>Title:</strong></label>
-                        <asp:TextBox runat="server" ID="txtTitle" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtTitle" CssClass="inputbox" MaxLength="200"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvTitle" ControlToValidate="txtTitle"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
                     <p>
                         <label for="<%=txtBody.ClientID %>"><strong>Body:</strong></label>
-                        <asp:TextBox runat="server" ID="txtBody" CssClass="inputbox" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtBody" CssClass="inputbox" TextMode="MultiLine" Columns="50" Rows="5"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvBody" ControlToValidate="txtBody"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>

@@ -14,7 +14,7 @@
                 <form action="#">
                     <p>
                         <label for="<%=txtVacancy.ClientID %>"><strong>Vacancy:</strong></label>
-                        <asp:TextBox runat="server" ID="txtVacancy" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtVacancy" CssClass="inputbox" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvVacancy" ControlToValidate="txtVacancy"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
@@ -31,25 +31,25 @@
                     </p>
                     <p>
                         <label for="<%=txtLocation.ClientID %>"><strong>Location:</strong></label>
-                        <asp:TextBox runat="server" ID="txtLocation" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtLocation" CssClass="inputbox" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvLocation" ControlToValidate="txtLocation"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
                     <p>
                         <label for="<%=txtDescription.ClientID %>"><strong>Job Description:</strong></label>
-                        <asp:TextBox runat="server" ID="txtDescription" CssClass="inputbox" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDescription" CssClass="inputbox" TextMode="MultiLine" Columns="50" Rows="5"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvDescription" ControlToValidate="txtDescription"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
                     <p>
                         <label for="<%=txtSkills.ClientID %>"><strong>Required Skills:</strong></label>
-                        <asp:TextBox runat="server" ID="txtSkills" CssClass="inputbox" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtSkills" CssClass="inputbox" TextMode="MultiLine" Columns="50" Rows="5"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rqvSkills" ControlToValidate="txtSkills"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                     </p>
                     <p>
                         <label for="<%=txtOpenings.ClientID %>"><strong>Openings:</strong></label>
-                        <asp:TextBox runat="server" ID="txtOpenings" CssClass="inputbox"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtOpenings" CssClass="inputbox" MaxLength="2"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rfvOpenings" ControlToValidate="txtOpenings"
                             ErrorMessage="<img src='/Admin/Content/images/icons/icon_missing.png' alt='Error'><br /><span class='smltxt red'>(This is a required field)</span>"></asp:RequiredFieldValidator>
                         <asp:CompareValidator runat="server" ID="cvOpenings" ControlToValidate="txtOpenings" Operator="DataTypeCheck" Type="Integer"

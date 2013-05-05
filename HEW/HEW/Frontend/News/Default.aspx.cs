@@ -11,7 +11,13 @@ namespace HEW.Frontend.News
 
         private void GetNewsList()
         {
-            rptNews.DataSource = Model.Repositories.NewsRepository.GetPublishedNewsList();
+            var newsResult = Model.Repositories.NewsRepository.GetPublishedNewsList();
+            foreach (var @new in newsResult)
+            {
+                @new.Title = Helpers.TrimString(@new.Title, 56);
+                @new.Body = Helpers.TrimString(@new.Body, 200);
+            }
+            rptNews.DataSource = newsResult;
             rptNews.DataBind();
         }
     }
