@@ -5,6 +5,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>AL HUDA Engineering Works - Our Projects</title>
+    <script type="text/javascript" src="/Scripts/fancy/jquery.colorbox.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Scripts/fancy/colorbox.css" />
+
+    <script>
+        $(document).ready(function () {
+            $(".group1").colorbox({ rel: 'group1' });
+        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="image-banner about">
@@ -21,6 +30,24 @@
             </div>
         </div>
         <div class="right-content">
+            <ul class="project-box">
+                <li>
+                    <a class="group1" href="http://img.dummy-image-generator.com/abstract/dummy-802x442-Mosque.jpg" title="Image 0">
+                        <img alt="" src="http://img.dummy-image-generator.com/abstract/dummy-302x242-Mosque.jpg" />
+                        <span>Testing Demo</span>
+                    </a>
+                    <div id='gallery'>
+                        <a class="group1" href="http://dummy-images.com/abstract/dummy-600x500-Stripes.jpg" title="Image 1"></a>
+                        <a class="group1" href="http://dummy-images.com/abstract/dummy-750x500-Utrecht.jpg" title="Image 2"></a>
+                        <a class="group1" href="http://dummy-images.com/abstract/dummy-750x500-Floral.jpg" title="Image 3"></a>
+                    </div>
+                    </li>
+            </ul>
+
+            <br />
+            <div class="clearfix"></div>
+            <hr />
+
             <asp:Repeater runat="server" ID="rptProjectCategories">
                 <HeaderTemplate>
                     <ul class="project-box">
