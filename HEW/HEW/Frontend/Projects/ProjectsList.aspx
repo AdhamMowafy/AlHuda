@@ -8,11 +8,6 @@
     <script type="text/javascript" src="/Scripts/fancy/jquery.colorbox.js"></script>
     <link rel="stylesheet" type="text/css" href="/Scripts/fancy/colorbox.css" />
 
-    <script>
-        $(document).ready(function () {
-            $(".group1").colorbox({ rel: 'group1' });
-        });
-    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -30,35 +25,32 @@
             </div>
         </div>
         <div class="right-content">
-            <ul class="project-box">
-                <li>
-                    <a class="group1" href="http://img.dummy-image-generator.com/abstract/dummy-802x442-Mosque.jpg" title="Image 0">
-                        <img alt="" src="http://img.dummy-image-generator.com/abstract/dummy-302x242-Mosque.jpg" />
-                        <span>Testing Demo</span>
-                    </a>
-                    <div id='gallery'>
-                        <a class="group1" href="http://dummy-images.com/abstract/dummy-600x500-Stripes.jpg" title="Image 1"></a>
-                        <a class="group1" href="http://dummy-images.com/abstract/dummy-750x500-Utrecht.jpg" title="Image 2"></a>
-                        <a class="group1" href="http://dummy-images.com/abstract/dummy-750x500-Floral.jpg" title="Image 3"></a>
-                    </div>
-                    </li>
-            </ul>
-
-            <br />
-            <div class="clearfix"></div>
-            <hr />
-
-            <asp:Repeater runat="server" ID="rptProjectCategories">
+            <asp:Repeater runat="server" ID="rptProjectCategories" OnItemDataBound="ItemBound">
                 <HeaderTemplate>
                     <ul class="project-box">
                 </HeaderTemplate>
                 <ItemTemplate>
+                    <script>
+                        $(document).ready(function () {
+                            $(".group<%#Eval("ID") %>").colorbox({ rel: 'group<%#Eval("ID") %>' });
+                        });
+                    </script>
                     <li>
-                        <a href="ProjectDetails.aspx?ProjectID=<%#Eval("ID") %>">
-                            <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_242,w_302/<%# HEW.Model.Repositories.ProjectsRepository.GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.png" />
+                        <a href="ProjectDetails.aspx?ProjectID=<%#Eval("ID") %>" class="group<%#Eval("ID") %>">
+                            <img alt="" src="http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/<%# HEW.Model.Repositories.ProjectsRepository.GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.png&h=242&w=302&t=absolute" />
                             <span><%#Eval("Name") %></span>
                         </a>
                     </li>
+
+
+                    <asp:Repeater runat="server" ID="rptImages">
+                        <ItemTemplate>
+
+                            <a class="group<%#Eval("ProjectID") %>" href="http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/<%#Eval("ImgPublicID") %>.png&h=500&w=750&t=absolute" title="Image 1"></a>
+
+                        </ItemTemplate>
+                    </asp:Repeater>
+
                 </ItemTemplate>
                 <FooterTemplate>
                     </ul>

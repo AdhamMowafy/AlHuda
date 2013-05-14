@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using HEW.Model.ModelViews;
 
 namespace HEW.Model.Repositories
 {
@@ -16,12 +17,18 @@ namespace HEW.Model.Repositories
             return _ModelDbContext.ProjectsCategories.ToList();
         }
 
-        public static IEnumerable GetProjectsByCategory(int projectCategory)
+        public static List<ProjectModelViews> GetProjectsByCategory(int projectCategory)
         {
             _ModelDbContext = new HEWDataContext();
-            return (from pr in _ModelDbContext.Projects
-                    where pr.CategoryID == projectCategory
-                    select new {pr.ID, pr.Name, ImgsCount = pr.ProjectsImages.Count}).ToList();
+            List<ProjectModelViews> projetList = (from pr in _ModelDbContext.Projects
+                                                  where pr.CategoryID == projectCategory
+                                                  select new ProjectModelViews
+                                                      {
+                                                          ID = pr.ID,
+                                                          Name = pr.Name,
+                                                          ImgsCount = pr.ProjectsImages.Count
+                                                      }).ToList();
+            return projetList;
         }
 
         public static string GetRandomImg(int projectId, int count)

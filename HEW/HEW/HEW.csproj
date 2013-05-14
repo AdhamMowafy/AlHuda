@@ -850,6 +850,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HEW.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ModelViews\ProjectModelViews.cs" />
     <Compile Include="Model\Repositories\CareersRepository.cs" />
     <Compile Include="Model\Repositories\NewsRepository.cs" />
     <Compile Include="Model\Repositories\ProjectsRepository.cs" />
