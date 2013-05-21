@@ -36,9 +36,10 @@ namespace HEW.Admin.News
             cbIsPublished.Checked = newsObj.IsPublished;
             
             imgNews.Visible = true;
-            imgNews.ImageUrl = "http://res.cloudinary.com/dlyvxs7of/image/upload/h_162,w_176/" + newsObj.ImgPublicID + ".jpg";
-
+            imgNews.ImageUrl = "http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/" +
+                               newsObj.ImgPublicID + ".jpg&h=162&w=176&t=absolute";
         }
+
         protected void UploadComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
         {
             Session["ImageBytes"] = Convert.ToBase64String(afuImage1.FileBytes);

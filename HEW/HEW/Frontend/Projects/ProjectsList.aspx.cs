@@ -29,22 +29,5 @@ namespace HEW.Frontend.Projects
 
             return "";//projectsList.GetEnumerator()..ProjectsCategory.Name;
         }
-
-        protected void ItemBound(object sender, RepeaterItemEventArgs args)
-        {
-            
-            if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                if (args.Item.DataItem != null)
-                {
-                    int projectId = Convert.ToInt32(((Model.ModelViews.ProjectModelViews) args.Item.DataItem).ID);
-                    
-                    Repeater rp2 = (Repeater)args.Item.FindControl("rptImages");
-                    rp2.DataSource = new Model.HEWDataContext().ProjectsImages.Where(i=>i.ProjectID == projectId).ToList();
-                    rp2.DataBind();
-                }
-            }
-        }
-
     }
 }

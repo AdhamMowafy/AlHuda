@@ -161,7 +161,7 @@
                                                 <li>
                                                     <h1><a href="/Frontend/News/NewsDetails.aspx?ID=<%#Eval("ID") %>"><%#Eval("Title") %></a></h1>
                                                     <div class="image">
-                                                        <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_84,w_106/<%#Eval("ImgPublicID") %>.jpg" />
+                                                        <img alt="" src="http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/<%#Eval("ImgPublicID") %>.jpg&h=106&w=84&t=absolute" />
                                                     </div>
                                                     <p><%# Eval("Body") %></p>
                                                     <div class="clearfix"></div>
@@ -192,7 +192,7 @@
                                                         <li>
                                                             <a href="#">
                                                                 <span><%#Eval("Name") %></span>
-                                                                <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_162,w_176/<%# HEW.Model.Repositories.ProjectsRepository.GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.png" />
+                                                                <img alt="" src="http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/<%#HEW.Model.Repositories.ProjectsRepository.GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.jpg&h=162&w=176&t=absolute" />
                                                             </a>
                                                         </li>
                                                     </ItemTemplate>

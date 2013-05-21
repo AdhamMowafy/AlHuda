@@ -28,7 +28,7 @@
                     <ItemTemplate>
                         <li>
                             <div class="image">
-                                <img src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_100,w_120/<%#Eval("ImgPublicID") %>.jpg" alt="" />
+                                <img src="http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/<%#Eval("ImgPublicID") %>.jpg&h=100&w=120&t=absolute" alt="" />
                             </div>
                             <div class="text">
                                 <h2><a href="#"><%#Eval("Title") %></a></h2>

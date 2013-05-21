@@ -8,7 +8,7 @@
     <ItemTemplate>
         <li>
             <a href="#">
-                <img alt="" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_238,w_248/<%# GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.jpg" title="<%#Eval("Name") %>" /></a></li>
+                <img alt="" src="http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/<%# GetRandomImg(Convert.ToInt32(Eval("ID")), Convert.ToInt32(Eval("ImgsCount"))) %>.jpg&h=238&w=248&t=absolute" title="<%#Eval("Name") %>" /></a></li>
     </ItemTemplate>
     <FooterTemplate>
         </ul>

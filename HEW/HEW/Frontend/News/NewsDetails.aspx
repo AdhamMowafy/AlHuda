@@ -37,7 +37,7 @@
                 <h2 class="newsName"><%=strNewsTitle %></h2>
                 <h3 class="date">Date of post: <%=strPiblishDate %></h3>
                 <div class="newsImageInner">
-                    <img width="680" height="300" src="http://res.cloudinary.com/dlyvxs7of/image/upload/h_300,w_680/<%=strNewsImgPublicId %>.jpg" alt="" /></div>
+                    <img width="680" height="300" src="http://images.weserv.nl/?url=res.cloudinary.com/dlyvxs7of/image/upload/<%=strNewsImgPublicId %>.jpg&h=300&w=680&t=absolute" alt="" /></div>
                 <br/>
                 <%=strNewsBody %>
             </div>

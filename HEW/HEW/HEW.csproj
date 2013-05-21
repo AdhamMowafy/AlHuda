@@ -513,6 +513,7 @@
     <Content Include="Frontend\Partnerships\LeftMenu.ascx" />
     <Content Include="Frontend\Projects\Default.aspx" />
     <Content Include="Frontend\Projects\LeftMenu.ascx" />
+    <Content Include="Frontend\Projects\ProjectDetails.aspx" />
     <Content Include="Frontend\Projects\ProjectsList.aspx" />
     <Content Include="Frontend\Shared\Footer.ascx" />
     <Content Include="Frontend\Shared\Header.ascx" />
@@ -543,13 +544,6 @@
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\fancy\colorbox.css" />
-    <Content Include="Scripts\fancy\images\border.png" />
-    <Content Include="Scripts\fancy\images\controls.png" />
-    <Content Include="Scripts\fancy\images\loading.gif" />
-    <Content Include="Scripts\fancy\images\loading_background.png" />
-    <Content Include="Scripts\fancy\images\overlay.png" />
-    <Content Include="Scripts\fancy\jquery.colorbox.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery-2.0.0.js" />
     <Content Include="Scripts\jquery-2.0.0.min.js" />
@@ -796,6 +790,13 @@
     </Compile>
     <Compile Include="Frontend\Projects\LeftMenu.ascx.designer.cs">
       <DependentUpon>LeftMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Projects\ProjectDetails.aspx.cs">
+      <DependentUpon>ProjectDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frontend\Projects\ProjectDetails.aspx.designer.cs">
+      <DependentUpon>ProjectDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Projects\ProjectsList.aspx.cs">
       <DependentUpon>ProjectsList.aspx</DependentUpon>
